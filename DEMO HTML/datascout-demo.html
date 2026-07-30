@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataScout - Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            height: 100%;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8ddd5 50%, #d4a574 100%);
+            color: #2a2a2a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at 30% 30%, #ff6b35, #ff3d00);
+            top: -150px;
+            right: -150px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at 30% 30%, #ff8c42, #ff6b35);
+            bottom: -100px;
+            left: -100px;
+            animation: float 8s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .shape-3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle at 30% 30%, #ffa566, #ff8c42);
+            top: 50%;
+            left: 10%;
+            animation: float 7s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b35, #ff3d00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -2px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            letter-spacing: 0.02em;
+            font-weight: 400;
+        }
+
+        .input-section {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            color: #ff6b35;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 16px;
+            color: #2a2a2a;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        textarea:focus,
+        input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+
+        textarea::placeholder,
+        input::placeholder {
+            color: #999;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 16px;
+            color: #2a2a2a;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        button {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #ff6b35, #ff3d00);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        button:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .results-section {
+            display: none;
+            animation: slideUp 0.5s ease;
+        }
+
+        .results-section.visible {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .results-header {
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .results-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #ff6b35, #ff3d00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35, #ff3d00);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 107, 53, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.15);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+            padding-bottom: 1.5rem;
+        }
+
+        .dataset-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2a2a2a;
+        }
+
+        .dataset-source {
+            font-size: 0.9rem;
+            color: #ff6b35;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .card-section {
+            margin-bottom: 1.75rem;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            color: #ff6b35;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .relevance-score {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .score-badge {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b35, #ff3d00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .score-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff8c42, #ff6b35);
+            border-radius: 4px;
+            transition: width 0.6s ease;
+        }
+
+        .quality-flag,
+        .license-flag {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .flag-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            font-weight: bold;
+            color: white;
+        }
+
+        .flag-icon.green {
+            background: linear-gradient(135deg, #00d084, #00a854);
+        }
+
+        .flag-icon.yellow {
+            background: linear-gradient(135deg, #ff8c42, #ff6b35);
+        }
+
+        .flag-content {
+            flex: 1;
+        }
+
+        .flag-title {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: #2a2a2a;
+            font-size: 1rem;
+        }
+
+        .flag-note {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .card-link {
+            display: inline-block;
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: all 0.3s ease;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 107, 53, 0.08);
+        }
+
+        .card-link:hover {
+            background: rgba(255, 107, 53, 0.15);
+            transform: translateX(4px);
+        }
+
+        .card-link::after {
+            content: ' →';
+            margin-left: 0.5rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 107, 53, 0.2);
+            border-top-color: #ff6b35;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading p {
+            color: #666;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            background: transparent;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 0.75rem 2rem;
+            font-size: 0.9rem;
+            box-shadow: none;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 107, 53, 0.08);
+            border-color: #ff3d00;
+        }
+
+        .back-button-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .input-section {
+                padding: 2rem;
+                border-radius: 16px;
+            }
+
+            .results-header h2 {
+                font-size: 2rem;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .shape-1 {
+                width: 200px;
+                height: 200px;
+                top: -100px;
+                right: -100px;
+            }
+
+            .shape-2 {
+                width: 150px;
+                height: 150px;
+                bottom: -75px;
+                left: -75px;
+            }
+
+            .shape-3 {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b35, #ff3d00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">DataScout</div>
+            <div class="tagline">Biết dataset có dùng được — trước khi tải về</div>
+        </header>
+
+        <div id="inputForm" class="input-section">
+            <div class="form-group">
+                <label for="description">Dán đoạn tài liệu / mô tả dữ liệu bạn có</label>
+                <textarea id="description" placeholder="Ví dụ: Có 5000 bình luận trên Shopee từ tháng 1–3..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="question">Câu hỏi của bạn</label>
+                <input type="text" id="question" placeholder="Ví dụ: Dữ liệu bình luận có gán nhãn cảm xúc?">
+            </div>
+
+            <div class="button-group">
+                <button onclick="handleSearch()">Gửi</button>
+                <button onclick="handleReset()" style="background: transparent; color: #ff6b35; border: 2px solid #ff6b35;">
+                    Xóa
+                </button>
+            </div>
+        </div>
+
+        <div id="loadingSection" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Đang tìm kiếm dataset phù hợp...</p>
+        </div>
+
+        <div id="resultsSection" class="results-section">
+            <div class="results-header">
+                <h2>Kết quả tìm kiếm</h2>
+                <p style="color: #999; font-size: 1.1rem;">3 dataset phù hợp nhất với yêu cầu của bạn</p>
+            </div>
+
+            <div class="results-grid" id="resultsGrid"></div>
+
+            <div class="back-button-container">
+                <button onclick="handleReset()" class="back-button">← Tìm kiếm lại</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-text">Biết Sớm, Tải Thông Minh</div>
+    </footer>
+
+    <script>
+        const datasets = [
+            {
+                id: 1,
+                name: 'UIT-VSFC Vietnamese Sentiment',
+                source: 'Hugging Face',
+                relevance: 94,
+                quality: { status: 'green', title: 'Dùng được ngay', note: 'Dữ liệu sạch, đầy đủ gán nhãn' },
+                license: { status: 'green', title: 'CC-BY', note: 'Được phép dùng & chỉnh sửa với ghi công' },
+                url: '#huggingface/uit-vsfc'
+            },
+            {
+                id: 2,
+                name: 'Vietnamese E-commerce Reviews',
+                source: 'Kaggle',
+                relevance: 81,
+                quality: { status: 'yellow', title: 'Cần kiểm tra thủ công', note: 'Thiếu 12% nhãn, cần làm sạch' },
+                license: { status: 'green', title: 'CC-BY-SA', note: 'Được phép dùng với cùng điều khoản' },
+                url: '#kaggle/vn-ecommerce'
+            },
+            {
+                id: 3,
+                name: 'Shopee VN Comments Dump',
+                source: 'Nội bộ',
+                relevance: 76,
+                quality: { status: 'yellow', title: 'Cần kiểm tra thủ công', note: 'Chưa rõ nguồn thu thập, cần xác thực' },
+                license: { status: 'yellow', title: 'Chưa xác định', note: 'Cần liên hệ chủ sở hữu về điều khoản' },
+                url: '#internal/shopee-vn'
+            }
+        ];
+
+        function handleSearch() {
+            const description = document.getElementById('description').value.trim();
+            const question = document.getElementById('question').value.trim();
+
+            if (!description || !question) {
+                alert('Vui lòng điền đầy đủ thông tin trước khi gửi.');
+                return;
+            }
+
+            showLoading();
+            setTimeout(showResults, 800);
+        }
+
+        function showLoading() {
+            document.getElementById('inputForm').style.display = 'none';
+            document.getElementById('resultsSection').classList.remove('visible');
+            document.getElementById('loadingSection').style.display = 'block';
+        }
+
+        function showResults() {
+            document.getElementById('loadingSection').style.display = 'none';
+            document.getElementById('resultsSection').classList.add('visible');
+            renderResults();
+        }
+
+        function renderResults() {
+            const grid = document.getElementById('resultsGrid');
+            grid.innerHTML = datasets.map(dataset => `
+                <div class="card">
+                    <div class="card-header">
+                        <div class="dataset-name">${dataset.name}</div>
+                        <div class="dataset-source">${dataset.source}</div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="section-label">Điểm Phù Hợp</div>
+                        <div class="relevance-score">
+                            <div class="score-badge">${dataset.relevance}</div>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: ${dataset.relevance}%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="section-label">Chất Lượng Dữ Liệu</div>
+                        <div class="quality-flag">
+                            <div class="flag-icon ${dataset.quality.status}">${dataset.quality.status === 'green' ? '✓' : '⚠'}</div>
+                            <div class="flag-content">
+                                <div class="flag-title">${dataset.quality.title}</div>
+                                <div class="flag-note">${dataset.quality.note}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="section-label">Điều Khoản Sử Dụng</div>
+                        <div class="license-flag">
+                            <div class="flag-icon ${dataset.license.status}">${dataset.license.status === 'green' ? '✓' : '⚠'}</div>
+                            <div class="flag-content">
+                                <div class="flag-title">${dataset.license.title}</div>
+                                <div class="flag-note">${dataset.license.note}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="${dataset.url}" class="card-link">Tới nguồn</a>
+                </div>
+            `).join('');
+        }
+
+        function handleReset() {
+            document.getElementById('description').value = '';
+            document.getElementById('question').value = '';
+            document.getElementById('inputForm').style.display = 'block';
+            document.getElementById('resultsSection').classList.remove('visible');
+            document.getElementById('loadingSection').style.display = 'none';
+            document.getElementById('description').focus();
+        }
+    </script>
+</body>
+</html>
