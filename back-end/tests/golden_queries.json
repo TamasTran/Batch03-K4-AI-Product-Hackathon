@@ -1,0 +1,407 @@
+[
+  {
+    "axis": ["subject_task_overlap", "cv", "vietnamese"],
+    "query": "tìm dataset cho bài toán phát hiện con người",
+    "expected_subject_keywords": ["human", "person", "pedestrian", "people"],
+    "must_not_match_if_only": ["detection", "classification"],
+    "known_bad_examples": ["valorant-object-detection", "forklift-object-detection", "license-plate-object-detection", "military_aircraft"],
+    "known_good_examples_pattern": ["human", "person", "pedestrian", "people", "face", "crowd"]
+  },
+  {
+    "query": "tìm dữ liệu object detection dành cho người đi bộ",
+    "expected_subject_keywords": ["pedestrian", "person", "human", "people"],
+    "must_not_match_if_only": ["object", "detection"],
+    "known_bad_examples": ["forklift", "license-plate", "aircraft", "valorant"],
+    "known_good_examples_pattern": ["pedestrian", "person", "human", "people", "crowd"]
+  },
+  {
+    "query": "human object detection dataset",
+    "expected_subject_keywords": ["human", "person", "pedestrian", "people"],
+    "must_not_match_if_only": ["object", "detection"],
+    "known_bad_examples": ["forklift", "license-plate", "aircraft", "valorant"],
+    "known_good_examples_pattern": ["human", "person", "pedestrian", "people", "face"]
+  },
+  {
+    "query": "person detection images dataset",
+    "expected_subject_keywords": ["person", "human", "pedestrian", "people"],
+    "must_not_match_if_only": ["image", "detection"],
+    "known_bad_examples": ["forklift", "license-plate", "aircraft", "valorant"],
+    "known_good_examples_pattern": ["person", "human", "pedestrian", "people", "face"]
+  },
+  {
+    "query": "pedestrian detection dataset for computer vision",
+    "expected_subject_keywords": ["pedestrian", "person", "human", "people"],
+    "must_not_match_if_only": ["detection", "vision"],
+    "known_bad_examples": ["forklift", "license-plate", "aircraft", "valorant"],
+    "known_good_examples_pattern": ["pedestrian", "person", "human", "people", "crowd"]
+  },
+  {
+    "query": "people detection dataset in street images",
+    "expected_subject_keywords": ["people", "person", "human", "pedestrian"],
+    "must_not_match_if_only": ["detection", "image"],
+    "known_bad_examples": ["forklift", "license-plate", "aircraft", "valorant"],
+    "known_good_examples_pattern": ["people", "person", "human", "pedestrian", "crowd"]
+  },
+  {
+    "query": "crowd person object detection data",
+    "expected_subject_keywords": ["crowd", "person", "people", "human"],
+    "must_not_match_if_only": ["object", "detection"],
+    "known_bad_examples": ["forklift", "license-plate", "aircraft", "valorant"],
+    "known_good_examples_pattern": ["crowd", "person", "people", "human"]
+  },
+  {
+    "query": "phát hiện người trong ảnh camera giám sát",
+    "expected_subject_keywords": ["human", "person", "people", "pedestrian"],
+    "must_not_match_if_only": ["detection", "camera", "image"],
+    "known_bad_examples": ["forklift", "license-plate", "aircraft", "valorant"],
+    "known_good_examples_pattern": ["human", "person", "people", "pedestrian", "crowd"]
+  },
+  {
+    "query": "dataset khoanh vùng người đi bộ trên đường",
+    "expected_subject_keywords": ["pedestrian", "person", "human", "people"],
+    "must_not_match_if_only": ["detection", "localization", "road"],
+    "known_bad_examples": ["forklift", "license-plate", "aircraft", "valorant"],
+    "known_good_examples_pattern": ["pedestrian", "person", "human", "people"]
+  },
+  {
+    "query": "real-time human detection training dataset",
+    "expected_subject_keywords": ["human", "person", "people", "pedestrian"],
+    "must_not_match_if_only": ["detection", "training"],
+    "known_bad_examples": ["forklift", "license-plate", "aircraft", "valorant"],
+    "known_good_examples_pattern": ["human", "person", "people", "pedestrian"]
+  },
+  {
+    "query": "dataset nhận diện và phát hiện khuôn mặt người",
+    "expected_subject_keywords": ["face", "human", "person", "people"],
+    "must_not_match_if_only": ["recognition", "detection"],
+    "known_bad_examples": ["forklift", "license-plate", "aircraft", "valorant"],
+    "known_good_examples_pattern": ["face", "human", "person", "people"]
+  },
+  {
+    "query": "UAV human person detection dataset",
+    "expected_subject_keywords": ["human", "person", "people", "pedestrian"],
+    "must_not_match_if_only": ["uav", "detection"],
+    "known_bad_examples": ["aircraft", "vehicle", "forklift", "license-plate"],
+    "known_good_examples_pattern": ["human", "person", "people", "pedestrian"]
+  },
+  {
+    "query": "thermal pedestrian object detection dataset",
+    "expected_subject_keywords": ["pedestrian", "person", "human", "people"],
+    "must_not_match_if_only": ["thermal", "object", "detection"],
+    "known_bad_examples": ["aircraft", "vehicle", "forklift", "license-plate"],
+    "known_good_examples_pattern": ["pedestrian", "person", "human", "people"]
+  },
+  {
+    "query": "image classification dataset for text images",
+    "expected_subject_keywords": ["text", "document", "ocr", "word"],
+    "must_not_match_if_only": ["image", "classification"],
+    "known_bad_examples": ["animal-classification", "vehicle-classification", "plant-disease"],
+    "known_good_examples_pattern": ["text", "document", "ocr", "word", "handwriting"]
+  },
+  {
+    "query": "phân loại ảnh có chứa văn bản",
+    "expected_subject_keywords": ["text", "document", "ocr", "word"],
+    "must_not_match_if_only": ["image", "classification"],
+    "known_bad_examples": ["animal", "vehicle", "flower", "aircraft"],
+    "known_good_examples_pattern": ["text", "document", "ocr", "word", "handwriting"]
+  },
+  {
+    "query": "text image classification training data",
+    "expected_subject_keywords": ["text", "document", "ocr", "word"],
+    "must_not_match_if_only": ["image", "classification", "training"],
+    "known_bad_examples": ["animal", "vehicle", "flower", "aircraft"],
+    "known_good_examples_pattern": ["text", "document", "ocr", "word", "handwriting"]
+  },
+  {
+    "query": "document text image classifier dataset",
+    "expected_subject_keywords": ["document", "text", "ocr", "word"],
+    "must_not_match_if_only": ["image", "classifier"],
+    "known_bad_examples": ["animal", "vehicle", "flower", "aircraft"],
+    "known_good_examples_pattern": ["document", "text", "ocr", "word", "handwriting"]
+  },
+  {
+    "query": "OCR text image classification dataset",
+    "expected_subject_keywords": ["ocr", "text", "document", "word"],
+    "must_not_match_if_only": ["image", "classification"],
+    "known_bad_examples": ["animal", "vehicle", "flower", "aircraft"],
+    "known_good_examples_pattern": ["ocr", "text", "document", "word", "handwriting"]
+  },
+  {
+    "query": "handwritten text image classification data",
+    "expected_subject_keywords": ["handwriting", "text", "document", "word"],
+    "must_not_match_if_only": ["image", "classification"],
+    "known_bad_examples": ["animal", "vehicle", "flower", "aircraft"],
+    "known_good_examples_pattern": ["handwriting", "text", "document", "word", "mnist"]
+  },
+  {
+    "query": "scene text image categorization dataset",
+    "expected_subject_keywords": ["text", "word", "ocr", "document"],
+    "must_not_match_if_only": ["image", "classification", "categorization"],
+    "known_bad_examples": ["animal", "vehicle", "flower", "aircraft"],
+    "known_good_examples_pattern": ["text", "word", "ocr", "document"]
+  },
+  {
+    "query": "dataset phân loại ảnh chữ viết",
+    "expected_subject_keywords": ["text", "handwriting", "word", "document"],
+    "must_not_match_if_only": ["image", "classification"],
+    "known_bad_examples": ["animal", "vehicle", "flower", "aircraft"],
+    "known_good_examples_pattern": ["text", "handwriting", "word", "document", "mnist"]
+  },
+  {
+    "query": "classify document images by text type",
+    "expected_subject_keywords": ["document", "text", "ocr", "word"],
+    "must_not_match_if_only": ["image", "classification", "classify"],
+    "known_bad_examples": ["animal", "vehicle", "flower", "aircraft"],
+    "known_good_examples_pattern": ["document", "text", "ocr", "word"]
+  },
+  {
+    "query": "printed text image classification benchmark",
+    "expected_subject_keywords": ["text", "document", "ocr", "word"],
+    "must_not_match_if_only": ["image", "classification", "benchmark"],
+    "known_bad_examples": ["animal", "vehicle", "flower", "aircraft"],
+    "known_good_examples_pattern": ["text", "document", "ocr", "word"]
+  },
+  {
+    "query": "word image classification dataset",
+    "expected_subject_keywords": ["word", "text", "document", "ocr"],
+    "must_not_match_if_only": ["image", "classification"],
+    "known_bad_examples": ["animal", "vehicle", "flower", "aircraft"],
+    "known_good_examples_pattern": ["word", "text", "document", "ocr", "handwriting"]
+  },
+  {
+    "query": "classify screenshots containing text",
+    "expected_subject_keywords": ["text", "document", "ocr", "word"],
+    "must_not_match_if_only": ["classification", "classify", "screenshot"],
+    "known_bad_examples": ["animal", "vehicle", "flower", "aircraft"],
+    "known_good_examples_pattern": ["text", "document", "ocr", "word", "screenshot"]
+  },
+  {
+    "query": "image classification for document text recognition",
+    "expected_subject_keywords": ["document", "text", "ocr", "word"],
+    "must_not_match_if_only": ["image", "classification", "recognition"],
+    "known_bad_examples": ["animal", "vehicle", "flower", "aircraft"],
+    "known_good_examples_pattern": ["document", "text", "ocr", "word", "handwriting"]
+  },
+  {
+    "axis": ["subject_no_overlap", "nlp", "english"],
+    "query": "text classification dataset for sentiment",
+    "expected_subject_keywords": ["sentiment", "emotion", "opinion", "polarity"],
+    "must_not_match_if_only": ["text", "classification"],
+    "known_bad_examples": ["topic-classification", "news-classification", "spam"],
+    "known_good_examples_pattern": ["sentiment", "emotion", "opinion", "polarity"]
+  },
+  {
+    "query": "phân loại văn bản theo cảm xúc",
+    "expected_subject_keywords": ["sentiment", "emotion", "opinion", "polarity"],
+    "must_not_match_if_only": ["text", "classification"],
+    "known_bad_examples": ["topic", "news", "spam", "language-identification"],
+    "known_good_examples_pattern": ["sentiment", "emotion", "opinion", "polarity"]
+  },
+  {
+    "query": "sentiment text classification training data",
+    "expected_subject_keywords": ["sentiment", "emotion", "opinion", "polarity"],
+    "must_not_match_if_only": ["text", "classification", "training"],
+    "known_bad_examples": ["topic", "news", "spam"],
+    "known_good_examples_pattern": ["sentiment", "emotion", "opinion", "polarity"]
+  },
+  {
+    "query": "opinion polarity text classifier dataset",
+    "expected_subject_keywords": ["opinion", "polarity", "sentiment", "emotion"],
+    "must_not_match_if_only": ["text", "classifier"],
+    "known_bad_examples": ["topic", "news", "spam"],
+    "known_good_examples_pattern": ["opinion", "polarity", "sentiment", "emotion"]
+  },
+  {
+    "query": "emotion classification dataset for text",
+    "expected_subject_keywords": ["emotion", "sentiment", "opinion", "polarity"],
+    "must_not_match_if_only": ["text", "classification"],
+    "known_bad_examples": ["topic", "news", "spam"],
+    "known_good_examples_pattern": ["emotion", "sentiment", "opinion", "polarity"]
+  },
+  {
+    "query": "customer review sentiment text classification",
+    "expected_subject_keywords": ["sentiment", "review", "opinion", "polarity"],
+    "must_not_match_if_only": ["text", "classification", "review"],
+    "known_bad_examples": ["topic", "news", "spam"],
+    "known_good_examples_pattern": ["sentiment", "review", "opinion", "polarity"]
+  },
+  {
+    "query": "social media sentiment classification corpus",
+    "expected_subject_keywords": ["sentiment", "emotion", "opinion", "polarity"],
+    "must_not_match_if_only": ["text", "classification", "corpus"],
+    "known_bad_examples": ["topic", "news", "spam"],
+    "known_good_examples_pattern": ["sentiment", "emotion", "opinion", "polarity"]
+  },
+  {
+    "query": "binary sentiment text dataset positive negative",
+    "expected_subject_keywords": ["sentiment", "polarity", "opinion", "emotion"],
+    "must_not_match_if_only": ["text", "classification", "binary"],
+    "known_bad_examples": ["topic", "news", "spam"],
+    "known_good_examples_pattern": ["sentiment", "polarity", "opinion", "emotion"]
+  },
+  {
+    "query": "dataset phân tích cảm xúc bình luận",
+    "expected_subject_keywords": ["sentiment", "emotion", "opinion", "review"],
+    "must_not_match_if_only": ["text", "classification", "analysis"],
+    "known_bad_examples": ["topic", "news", "spam"],
+    "known_good_examples_pattern": ["sentiment", "emotion", "opinion", "review"]
+  },
+  {
+    "query": "multilingual sentiment text classification",
+    "expected_subject_keywords": ["sentiment", "emotion", "opinion", "polarity"],
+    "must_not_match_if_only": ["text", "classification", "multilingual"],
+    "known_bad_examples": ["topic", "news", "spam"],
+    "known_good_examples_pattern": ["sentiment", "emotion", "opinion", "polarity"]
+  },
+  {
+    "query": "fine grained emotion sentiment text dataset",
+    "expected_subject_keywords": ["emotion", "sentiment", "opinion", "polarity"],
+    "must_not_match_if_only": ["text", "classification"],
+    "known_bad_examples": ["topic", "news", "spam"],
+    "known_good_examples_pattern": ["emotion", "sentiment", "opinion", "polarity"]
+  },
+  {
+    "query": "Vietnamese sentiment text classification dataset",
+    "expected_subject_keywords": ["sentiment", "emotion", "opinion", "polarity"],
+    "must_not_match_if_only": ["text", "classification", "vietnamese"],
+    "known_bad_examples": ["topic", "news", "spam"],
+    "known_good_examples_pattern": ["sentiment", "emotion", "opinion", "polarity"]
+  },
+  {
+    "axis": ["subject_task_overlap", "audio", "english"],
+    "query": "speech detection audio dataset",
+    "expected_subject_keywords": ["speech", "voice", "spoken"],
+    "must_not_match_if_only": ["audio", "detection"],
+    "known_bad_examples": ["music", "siren", "engine"],
+    "known_good_examples_pattern": ["speech", "voice", "spoken", "speaker"],
+    "expected_intent": {"modality": "audio"}
+  },
+  {
+    "axis": ["subject_no_overlap", "clarity", "cv", "vietnamese"],
+    "query": "Tìm dataset ảnh X-quang phổi để phân loại viêm phổi",
+    "expected_subject_keywords": ["pneumonia", "lung", "chest", "x-ray"],
+    "must_not_match_if_only": ["image", "classification"],
+    "known_bad_examples": ["animal", "vehicle", "flower"],
+    "known_good_examples_pattern": ["pneumonia", "lung", "chest", "x-ray", "xray"],
+    "expected_intent": {"modality": "image", "domain": ["medical", "biomedical"]}
+  },
+  {
+    "axis": ["ambiguity", "clarification", "vietnamese"],
+    "mode": "clarification",
+    "query": "tôi cần data để train model",
+    "expected_status": "clarification_required",
+    "expected_missing_fields": ["task_type", "modality"]
+  },
+  {
+    "axis": ["paraphrase", "cv", "english"],
+    "intent_group": "vehicle_detection",
+    "query": "vehicle object detection dataset",
+    "expected_subject_keywords": ["vehicle", "car", "automobile"],
+    "must_not_match_if_only": ["object", "detection"],
+    "known_bad_examples": ["person", "animal", "face"],
+    "known_good_examples_pattern": ["vehicle", "car", "automobile", "traffic"],
+    "expected_intent": {"task_type": "object detection", "modality": "image"}
+  },
+  {
+    "axis": ["paraphrase", "cv", "vietnamese"],
+    "intent_group": "vehicle_detection",
+    "query": "tìm xe trong ảnh",
+    "expected_subject_keywords": ["vehicle", "car", "automobile"],
+    "must_not_match_if_only": ["object", "detection", "image"],
+    "known_bad_examples": ["person", "animal", "face"],
+    "known_good_examples_pattern": ["vehicle", "car", "automobile", "traffic"],
+    "expected_intent": {"task_type": "object detection", "modality": "image"}
+  },
+  {
+    "axis": ["paraphrase", "cv", "mix_language"],
+    "intent_group": "vehicle_detection",
+    "query": "dataset để localize road vehicles",
+    "expected_subject_keywords": ["vehicle", "car", "automobile", "road"],
+    "must_not_match_if_only": ["localization", "detection"],
+    "known_bad_examples": ["person", "animal", "face"],
+    "known_good_examples_pattern": ["vehicle", "car", "automobile", "traffic"],
+    "expected_intent": {"task_type": "object detection", "modality": "image"}
+  },
+  {
+    "axis": ["large_candidate_pool", "cv", "english"],
+    "query": "general image classification dataset",
+    "expected_subject_keywords": ["general"],
+    "must_not_match_if_only": ["image", "classification"],
+    "known_bad_examples": ["audio-only", "text-only"],
+    "known_good_examples_pattern": ["image", "cifar", "imagenet", "mnist"],
+    "pool_expectation": {"min": 40}
+  },
+  {
+    "axis": ["small_candidate_pool", "medical", "english"],
+    "query": "rare pediatric retinal vasculitis OCT segmentation dataset",
+    "expected_subject_keywords": ["retinal", "vasculitis", "pediatric", "oct"],
+    "must_not_match_if_only": ["segmentation", "image"],
+    "known_bad_examples": ["road", "vehicle", "sentiment"],
+    "known_good_examples_pattern": ["retinal", "vasculitis", "pediatric", "oct"],
+    "pool_expectation": {"max": 25}
+  },
+  {
+    "axis": ["multi_turn", "clarification", "subject_no_overlap", "nlp", "vietnamese"],
+    "mode": "multi_turn",
+    "query": "tôi cần một dataset tốt",
+    "follow_up": "phân loại email spam bằng văn bản tiếng Anh",
+    "expected_subject_keywords": ["spam", "email", "mail"],
+    "must_not_match_if_only": ["text", "classification"],
+    "known_bad_examples": ["image", "vehicle", "audio"],
+    "known_good_examples_pattern": ["spam", "email", "mail"],
+    "expected_intent": {
+      "modality": "text",
+      "task_type": ["classification", "spam classification"]
+    }
+  },
+  {
+    "axis": ["encoding", "mojibake", "vietnamese"],
+    "mode": "clarification",
+    "query": "tĂ¬m dataset phĂ¢n loáº¡i áº£nh con ngÆ°á»i",
+    "expected_status": "clarification_required"
+  },
+  {
+    "axis": ["encoding", "mix_language", "subject_task_overlap", "audio"],
+    "query": "Tìm speech emotion recognition dataset tiếng Việt",
+    "expected_subject_keywords": ["speech", "emotion", "voice", "vietnamese"],
+    "must_not_match_if_only": ["audio", "recognition", "classification"],
+    "known_bad_examples": ["image", "vehicle", "road"],
+    "known_good_examples_pattern": ["speech", "emotion", "voice", "vietnamese"],
+    "expected_intent": {"modality": "audio"}
+  },
+  {
+    "axis": ["complex_constraints", "tabular", "english"],
+    "query": "tabular credit card fraud classification with labels fraud and legitimate, at least 10000 samples",
+    "expected_subject_keywords": ["fraud", "credit", "transaction"],
+    "must_not_match_if_only": ["tabular", "classification"],
+    "known_bad_examples": ["image", "audio", "weather"],
+    "known_good_examples_pattern": ["fraud", "credit", "transaction"],
+    "expected_intent": {"modality": "tabular"},
+    "constraint_probes": [
+      {
+        "name": "too_small",
+        "candidate": {
+          "id": "synthetic/fraud-small",
+          "title": "Credit Card Fraud Transactions",
+          "description": "Fraud and legitimate labels",
+          "tags": ["tabular", "fraud"],
+          "source": "Synthetic eval",
+          "sample_count": 100
+        },
+        "expected_status": "mismatch"
+      },
+      {
+        "name": "missing_required_labels",
+        "candidate": {
+          "id": "synthetic/fraud-no-labels",
+          "title": "Credit Card Transactions",
+          "description": "Anonymous transaction records",
+          "tags": ["tabular", "credit"],
+          "source": "Synthetic eval",
+          "sample_count": 20000
+        },
+        "expected_status": "mismatch"
+      }
+    ]
+  }
+]

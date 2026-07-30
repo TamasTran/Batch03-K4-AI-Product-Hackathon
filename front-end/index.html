@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="DataScout AI tìm, kiểm chứng và xếp hạng dataset đa nguồn.">
+    <title>DataScout AI</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="./styles.css">
+    <style type="text/tailwindcss">
+      @theme {
+        --color-canvas: #0f172a;
+        --color-ink: #f8fafc;
+        --color-panel: #1e293b;
+        --color-elevated: #334155;
+        --color-line: rgb(255 255 255 / 0.08);
+        --color-soft: #cbd5e1;
+        --color-signal: #6366f1;
+        --color-signal-bright: #8b5cf6;
+        --color-accent: #06b6d4;
+        --color-success: #22c55e;
+        --font-sans: "Segoe UI Variable", Aptos, "Segoe UI", sans-serif;
+        --font-mono: "Cascadia Code", Consolas, monospace;
+      }
+    </style>
+    <script src="./config.js"></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body class="min-h-[100dvh] overflow-x-hidden bg-canvas font-sans text-ink antialiased selection:bg-signal/25">
+    <div class="reference-ambient pointer-events-none fixed inset-0 z-0"></div>
+
+    <div class="relative z-10 grid min-h-[100dvh] lg:grid-cols-[292px_minmax(0,1fr)]">
+      <div id="sidebar-scrim" class="fixed inset-0 z-30 hidden bg-black/65 backdrop-blur-sm lg:hidden"></div>
+
+      <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 flex w-[292px] -translate-x-full flex-col border-r border-line bg-panel/95 px-4 py-5 backdrop-blur-xl transition-transform duration-300 lg:sticky lg:top-0 lg:h-[100dvh] lg:translate-x-0">
+        <div class="flex items-center justify-between px-2">
+          <a href="./" class="flex items-center gap-3 no-underline" aria-label="Trang chủ DataScout AI">
+            <span class="grid size-9 place-items-center rounded-[12px] bg-signal text-sm font-black text-ink">DF</span>
+            <span class="text-[15px] font-semibold tracking-[-0.02em]">DataScout AI</span>
+          </a>
+          <button id="close-sidebar" class="grid size-9 place-items-center rounded-[10px] text-soft hover:bg-signal/10 hover:text-ink lg:hidden" aria-label="Đóng menu">
+            <i class="ph ph-x text-xl" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <button id="new-search" class="mt-7 flex h-11 w-full items-center justify-between rounded-[12px] border border-line bg-elevated px-3.5 text-sm font-medium shadow-sm transition hover:border-signal/50 hover:bg-signal/5 active:translate-y-px">
+          <span class="flex items-center gap-2.5"><i class="ph ph-plus text-lg text-signal" aria-hidden="true"></i>New research</span>
+          <kbd class="font-mono text-[10px] text-soft">Ctrl K</kbd>
+        </button>
+
+        <nav class="mt-5 space-y-1" aria-label="Điều hướng chính">
+          <button type="button" class="nav-item active" data-view="assistant"><i class="ph ph-sparkle" aria-hidden="true"></i><span>Research assistant</span></button>
+          <button type="button" class="nav-item" data-view="library"><i class="ph ph-stack" aria-hidden="true"></i><span>Dataset library</span></button>
+          <button type="button" class="nav-item" data-view="history"><i class="ph ph-clock-counter-clockwise" aria-hidden="true"></i><span>Search history</span></button>
+        </nav>
+
+        <div class="mt-7 min-h-0 flex-1 overflow-y-auto pr-1">
+          <div class="mb-3 flex items-center justify-between px-2">
+            <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-soft">Recent threads</span>
+            <button type="button" id="clear-history" class="text-soft hover:text-ink" aria-label="Xóa lịch sử tìm kiếm" title="Xóa lịch sử"><i class="ph ph-trash" aria-hidden="true"></i></button>
+          </div>
+          <div id="history-list" class="space-y-1"></div>
+        </div>
+
+        <details class="group mt-4 border-t border-line pt-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between rounded-[10px] px-2 py-2 text-sm text-soft hover:bg-signal/[0.06] hover:text-ink">
+            <span class="flex items-center gap-2.5"><i class="ph ph-database" aria-hidden="true"></i>Data sources</span>
+            <i class="ph ph-caret-down transition group-open:rotate-180" aria-hidden="true"></i>
+          </summary>
+          <fieldset id="source-list" class="mt-2 space-y-1 px-2">
+            <legend class="sr-only">Chọn nguồn dữ liệu</legend>
+            <label class="source-row"><span>Hugging Face</span><input type="checkbox" name="source" value="Hugging Face" checked></label>
+            <label class="source-row"><span>Kaggle</span><input type="checkbox" name="source" value="Kaggle"></label>
+            <label class="source-row"><span>Papers with Code</span><input type="checkbox" name="source" value="Papers with Code"></label>
+            <label class="source-row"><span>OpenML</span><input type="checkbox" name="source" value="OpenML" checked></label>
+            <label class="source-row"><span>Zenodo</span><input type="checkbox" name="source" value="Zenodo" checked></label>
+            <label class="source-row border-t border-line pt-2"><span>Catch-all web</span><input id="web-fallback" type="checkbox" role="switch" checked></label>
+          </fieldset>
+        </details>
+
+        <button type="button" id="model-card" class="mt-4 flex w-full items-center gap-3 rounded-[12px] border border-line bg-elevated p-3 text-left shadow-sm transition hover:border-signal/40" aria-label="Mở cấu hình AI">
+          <span class="grid size-9 shrink-0 place-items-center rounded-[10px] bg-signal/15 font-mono text-xs text-signal">AI</span>
+          <div class="min-w-0 flex-1">
+            <p id="model-name" class="truncate text-xs font-medium">Checking model</p>
+            <p id="api-state" class="mt-0.5 flex items-center gap-1.5 text-[11px] text-soft" role="status">
+              <span class="size-1.5 rounded-full bg-soft"></span><span>Đang kết nối API</span>
+            </p>
+          </div>
+          <i class="ph ph-caret-right text-soft" aria-hidden="true"></i>
+        </button>
+      </aside>
+
+      <main class="relative flex min-h-[100dvh] min-w-0 flex-col">
+        <header class="sticky top-0 z-20 flex h-[68px] items-center justify-between border-b border-line/80 bg-canvas/80 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
+          <div class="flex items-center gap-3">
+            <button id="open-sidebar" class="grid size-10 place-items-center rounded-[10px] border border-line text-soft hover:text-ink lg:hidden" aria-label="Mở menu">
+              <i class="ph ph-list text-xl" aria-hidden="true"></i>
+            </button>
+            <button type="button" id="workspace-button" class="flex items-center gap-2 rounded-[10px] px-2 py-1.5 text-sm font-medium hover:bg-signal/[0.06]" aria-label="Mở cài đặt nghiên cứu">
+              Dataset Research <i class="ph ph-caret-down text-xs text-soft" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="hidden items-center gap-2 rounded-[10px] border border-line px-3 py-2 text-xs text-soft sm:flex">
+              <i class="ph ph-shield-check text-signal" aria-hidden="true"></i>Evidence mode
+            </span>
+            <button id="settings-button" class="grid size-10 place-items-center rounded-[10px] border border-line bg-elevated text-soft transition hover:border-signal/40 hover:text-ink" aria-label="Cài đặt tìm kiếm">
+              <i class="ph ph-sliders-horizontal text-lg" aria-hidden="true"></i>
+            </button>
+          </div>
+        </header>
+
+        <section id="conversation" class="mx-auto flex w-full max-w-[1120px] flex-1 flex-col px-4 pb-44 pt-10 sm:px-7 lg:px-10 lg:pt-16" aria-live="polite">
+          <div id="welcome-screen" class="my-auto py-8">
+            <div class="reveal">
+              <div class="mb-6 flex items-center gap-3">
+                <span class="grid size-11 place-items-center rounded-[14px] border border-signal/35 bg-signal/10 text-signal">
+                  <i class="ph ph-sparkle text-xl" aria-hidden="true"></i>
+                </span>
+                <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-signal">Research intelligence</span>
+              </div>
+              <h1 class="max-w-[800px] text-[clamp(2.45rem,6vw,5.25rem)] font-medium leading-[0.98] tracking-[-0.06em]">
+                Tôi có thể tìm dataset nào cho bạn?
+              </h1>
+              <p class="mt-6 max-w-[620px] text-base leading-7 text-soft sm:text-lg">
+                Mô tả bài toán. Agent sẽ tìm đa nguồn, kiểm chứng metadata và giải thích vì sao từng dataset phù hợp.
+              </p>
+            </div>
+
+            <div class="mt-12 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+              <button class="agent-card group" data-prompt="Tìm dataset tiếng Việt có nhãn để phân loại cảm xúc bình luận sản phẩm.">
+                <span class="agent-icon bg-signal/15 text-signal"><i class="ph ph-chat-circle-text" aria-hidden="true"></i></span>
+                <span><b>Sentiment analyst</b><small>NLP tiếng Việt có nhãn</small></span>
+                <i class="ph ph-arrow-up-right agent-arrow" aria-hidden="true"></i>
+              </button>
+              <button class="agent-card group" data-prompt="I need an image dataset for construction helmet object detection.">
+                <span class="agent-icon bg-signal-bright/15 text-signal-bright"><i class="ph ph-scan" aria-hidden="true"></i></span>
+                <span><b>Vision scout</b><small>Object detection datasets</small></span>
+                <i class="ph ph-arrow-up-right agent-arrow" aria-hidden="true"></i>
+              </button>
+              <button class="agent-card group" data-prompt="Tìm point cloud 3D có nhãn để phân loại đồ vật trong nhà.">
+                <span class="agent-icon bg-accent/15 text-accent"><i class="ph ph-cube" aria-hidden="true"></i></span>
+                <span><b>3D explorer</b><small>Point cloud và geometry</small></span>
+                <i class="ph ph-arrow-up-right agent-arrow" aria-hidden="true"></i>
+              </button>
+              <button class="agent-card group" data-prompt="Tìm dữ liệu ảnh để phát hiện khuôn mặt giả mạo.">
+                <span class="agent-icon bg-success/15 text-success"><i class="ph ph-shield-warning" aria-hidden="true"></i></span>
+                <span><b>Risk-aware search</b><small>Dữ liệu nhạy cảm</small></span>
+                <i class="ph ph-arrow-up-right agent-arrow" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <div class="pointer-events-none fixed inset-x-0 bottom-0 z-20 bg-gradient-to-t from-canvas via-canvas/95 to-transparent px-4 pb-5 pt-16 lg:left-[292px] sm:px-6">
+          <form id="search-form" class="pointer-events-auto mx-auto max-w-[920px]" novalidate>
+            <div class="composer relative rounded-[18px] border border-line bg-elevated/95 p-2 shadow-[0_24px_80px_rgba(15,23,42,.55)] backdrop-blur-xl transition focus-within:border-signal/55 focus-within:shadow-[0_24px_80px_rgba(99,102,241,.16)]">
+              <label for="query" class="sr-only">Mô tả dataset cần tìm</label>
+              <textarea id="query" rows="1" class="max-h-40 min-h-14 w-full resize-none bg-transparent px-3 pb-2 pt-3 text-[15px] leading-6 text-ink outline-none placeholder:text-soft/60" placeholder="Mô tả dataset bạn cần tìm..." required></textarea>
+              <div class="flex items-center justify-between gap-3 px-1 pb-1">
+                <div class="flex items-center gap-1">
+                  <button type="button" id="tools-button" class="composer-tool"><i class="ph ph-plus" aria-hidden="true"></i><span class="hidden sm:inline">Tools</span></button>
+                  <button type="button" id="web-search-button" class="composer-tool" aria-pressed="true" title="Bật hoặc tắt tìm kiếm web"><i class="ph ph-globe-hemisphere-west" aria-hidden="true"></i><span class="hidden sm:inline">Web on</span></button>
+                </div>
+                <button id="submit-button" type="submit" class="grid size-10 shrink-0 place-items-center rounded-[12px] bg-signal text-ink transition hover:bg-signal-bright active:translate-y-px disabled:cursor-wait disabled:opacity-50" aria-label="Tìm dataset">
+                  <i class="ph ph-arrow-up text-lg font-bold" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            <div class="mt-2 flex min-h-5 items-center justify-between px-2">
+              <p id="form-error" class="text-xs text-signal-bright" role="alert"></p>
+              <p class="text-[10px] text-soft">Metadata có thể thiếu. Luôn kiểm tra dataset card.</p>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <dialog id="settings-dialog" class="m-auto w-[min(92vw,520px)] rounded-[18px] border border-line bg-panel p-0 text-ink shadow-2xl backdrop:bg-canvas/70 backdrop:backdrop-blur-sm">
+      <form method="dialog">
+        <div class="flex items-center justify-between border-b border-line px-6 py-5">
+          <div><h2 class="text-lg font-semibold">Search settings</h2><p class="mt-1 text-xs text-soft">Điều chỉnh độ rộng của mỗi lượt tìm kiếm.</p></div>
+          <button class="grid size-9 place-items-center rounded-[10px] text-soft hover:bg-signal/10 hover:text-ink" aria-label="Đóng"><i class="ph ph-x text-lg" aria-hidden="true"></i></button>
+        </div>
+        <div class="px-6 py-6">
+          <label for="limit" class="flex items-center justify-between text-sm"><span>Kết quả tối đa mỗi evidence lane</span><output id="limit-output" for="limit" class="font-mono text-signal">15</output></label>
+          <input id="limit" type="range" min="5" max="30" value="15" class="mt-4 w-full accent-signal">
+          <div id="config-facts" class="mt-7 grid gap-2 border-t border-line pt-5 text-xs text-soft"></div>
+        </div>
+        <div class="flex justify-end border-t border-line px-6 py-4">
+          <button value="close" class="rounded-[10px] bg-signal px-4 py-2 text-sm font-semibold text-ink">Hoàn tất</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>

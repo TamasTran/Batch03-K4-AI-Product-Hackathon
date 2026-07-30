@@ -1,0 +1,93 @@
+tools:
+  - name: analyze_task
+    description: >
+      Phân tích đề tài thành task, domain, modality, từ khóa, độ tin cậy và quyết định
+      có cần hỏi làm rõ trước khi tìm kiếm hay không.
+    parameters:
+      type: object
+      properties:
+        text: {type: string}
+      required: [text]
+
+  - name: search_registry
+    description: Tìm dataset thật trên một registry đã bật bằng API của registry đó.
+    parameters:
+      type: object
+      properties:
+        source_name: {type: string, enum: [Hugging Face, Kaggle, Papers with Code, OpenML, Zenodo]}
+        keyword: {type: string}
+        limit: {type: integer, minimum: 1, maximum: 30}
+      required: [source_name, keyword]
+
+  - name: search_web_fallback
+    description: >
+      Tìm catch-all trên danh sách domain cố định bằng search API. Chỉ trả title,
+      snippet, URL và confidence=unverified; không suy diễn metadata.
+    parameters:
+      type: object
+      properties:
+        keywords: {type: array, items: {type: string}}
+        domains: {type: array, items: {type: string}}
+        limit: {type: integer, minimum: 1, maximum: 30}
+      required: [keywords]
+
+  - name: verify_candidates
+    description: Loại record thiếu id, URL hoặc source và loại URL trùng chính xác.
+    parameters:
+      type: object
+      properties:
+        candidates: {type: array, items: {type: object}}
+        limit: {type: integer}
+      required: [candidates]
+
+  - name: prepare_candidates
+    description: >
+      Đánh giá language, subject, labels, minimum samples và tạo candidate pool
+      cân bằng giữa các nguồn trước ranking.
+    parameters:
+      type: object
+      properties:
+        intent: {type: object}
+        candidates: {type: array, items: {type: object}}
+        max_candidates: {type: integer}
+      required: [intent, candidates]
+
+  - name: enrich_candidates
+    description: >
+      Lấy metadata chi tiết qua API ổn định, gồm dataset card, features, labels
+      và sample count khi nguồn cung cấp.
+    parameters:
+      type: object
+      properties:
+        candidates: {type: array, items: {type: object}}
+        max_candidates: {type: integer}
+      required: [candidates]
+
+  - name: rank_datasets
+    description: Xếp hạng đúng các candidate đã xác minh, không thêm ID hoặc URL mới.
+    parameters:
+      type: object
+      properties:
+        intent: {type: object}
+        candidates: {type: array, items: {type: object}}
+      required: [intent, candidates]
+
+  - name: deduplicate_candidates
+    description: >
+      Bước 2.5 dedup xuyên nguồn: fuzzy matching trước, chỉ gửi cặp mơ hồ cho
+      LLM và ưu tiên không gộp khi bằng chứng không rõ.
+    parameters:
+      type: object
+      properties:
+        candidates: {type: array, items: {type: object}}
+        intent: {type: object}
+      required: [candidates]
+
+  - name: build_fallback_guidance
+    description: Tạo phương án thay thế khi chưa có dataset mở đủ phù hợp.
+    parameters:
+      type: object
+      properties:
+        intent: {type: object}
+        ranked: {type: array, items: {type: object}}
+      required: [intent, ranked]
