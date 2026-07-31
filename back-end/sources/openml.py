@@ -49,6 +49,7 @@ def search_openml_datasets(
             continue
         results.append({
             "id": str(dataset_id),
+            "title": name,
             "url": f"https://www.openml.org/d/{dataset_id}",
             "source": "OpenML",
             "downloads": item.get("NumberOfDownloads"),

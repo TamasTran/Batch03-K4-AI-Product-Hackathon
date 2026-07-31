@@ -2,7 +2,7 @@
   {
     "id": 1,
     "category": "subject_relevance",
-    "input": "tìm dataset cho bài toán phát hiện người đi bộ",
+    "input": " tìm dataset cho bài toán phát hiện người đi bộ",
     "must_answer": "Dataset xếp hạng đầu phải thuộc chủ đề pedestrian/person detection. KHÔNG được xếp dataset object detection khác chủ đề (biển số xe, xe nâng, phương tiện) lên đầu chỉ vì trùng từ khóa 'object detection'.",
     "grounded_in": "back-end/pipeline/rank_candidates.py (LLM rank theo subject overlap với intent)"
   },

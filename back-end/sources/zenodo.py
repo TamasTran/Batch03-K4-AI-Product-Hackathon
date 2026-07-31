@@ -32,6 +32,7 @@ def search_zenodo_datasets(
         description = metadata.get("description") or ""
         results.append({
             "id": str(record_id),
+            "title": title,
             "url": links.get("html") or f"https://zenodo.org/records/{record_id}",
             "source": "Zenodo",
             "downloads": (item.get("stats") or {}).get("downloads"),

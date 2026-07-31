@@ -221,7 +221,7 @@ function verifiedCard(item) {
     <article class="dataset-card">
       <div>
         <p class="dataset-source">${escapeHtml(item.source || "Verified registry")}</p>
-        <h3><a href="${safeUrl(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.id || item.title || item.url)}</a></h3>
+        <h3><a href="${safeUrl(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title || item.id || item.url)}</a></h3>
         <p class="dataset-reasoning">${escapeHtml(item.reasoning || "Không có giải thích xếp hạng.")}</p>
         ${item.review_warning ? `<p class="mt-2 rounded-lg border border-amber-400/40 bg-amber-400/10 px-3 py-2 text-[12px] leading-5 text-amber-200">${escapeHtml(item.review_warning)}</p>` : ""}
         ${duplicateNote(item)}
