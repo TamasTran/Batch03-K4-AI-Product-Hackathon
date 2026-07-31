@@ -1,0 +1,156 @@
+[
+  {
+    "id": 1,
+    "category": "subject_relevance",
+    "input": "tìm dataset cho bài toán phát hiện người đi bộ",
+    "must_answer": "Dataset xếp hạng đầu phải thuộc chủ đề pedestrian/person detection. KHÔNG được xếp dataset object detection khác chủ đề (biển số xe, xe nâng, phương tiện) lên đầu chỉ vì trùng từ khóa 'object detection'.",
+    "grounded_in": "back-end/pipeline/rank_candidates.py (LLM rank theo subject overlap với intent)"
+  },
+  {
+    "id": 2,
+    "category": "subject_relevance",
+    "input": "dataset nhận diện khuôn mặt",
+    "must_answer": "Top kết quả phải là dataset face detection/recognition. Loại các dataset object detection chung chung không liên quan khuôn mặt ra khỏi nhóm xếp hạng cao.",
+    "grounded_in": "back-end/pipeline/rank_candidates.py"
+  },
+  {
+    "id": 3,
+    "category": "subject_relevance",
+    "input": "dữ liệu phân loại cảm xúc bình luận sản phẩm tiếng Việt",
+    "must_answer": "Top kết quả phải là dataset sentiment classification cho product reviews, ưu tiên tiếng Việt nếu tồn tại. Dataset tiếng Anh hoặc không liên quan đến bình luận sản phẩm phải xếp thấp hơn hoặc bị loại.",
+    "grounded_in": "back-end/pipeline/parse_task.py (required_language, subject=product reviews)"
+  },
+  {
+    "id": 4,
+    "category": "subject_relevance",
+    "input": "dataset phân tích tin tức giả (fake news)",
+    "must_answer": "Kết quả phải liên quan trực tiếp đến fake news detection, không được trộn lẫn dataset sentiment/spam email không liên quan tới tin tức giả.",
+    "grounded_in": "back-end/pipeline/rank_candidates.py"
+  },
+  {
+    "id": 5,
+    "category": "subject_relevance",
+    "input": "tập dữ liệu chữ viết tay tiếng Việt",
+    "must_answer": "Dataset handwriting/OCR tiếng Việt phải được ưu tiên hơn dataset chữ viết tay tiếng Anh/Latin nếu cả hai cùng xuất hiện trong danh sách ứng viên.",
+    "grounded_in": "back-end/pipeline/parse_task.py (required_language=vietnamese)"
+  },
+  {
+    "id": 6,
+    "category": "clarification_required",
+    "input": "tôi cần dữ liệu để train model",
+    "must_answer": "Hệ thống PHẢI trả về status=clarification_required và hỏi lại tác vụ/loại dữ liệu/chủ đề cụ thể. KHÔNG được tự đoán và trả về danh sách dataset.",
+    "grounded_in": "back-end/pipeline/parse_task.py:79-96 (needs_clarification khi task_type/modality confidence < 0.6)"
+  },
+  {
+    "id": 7,
+    "category": "clarification_required",
+    "input": "cho tôi dataset",
+    "must_answer": "Hệ thống PHẢI hỏi lại làm rõ tác vụ và loại dữ liệu (thiếu task_type, modality). KHÔNG được tự bịa ra một tác vụ cụ thể rồi trả kết quả.",
+    "grounded_in": "back-end/pipeline/parse_task.py"
+  },
+  {
+    "id": 8,
+    "category": "clarification_required",
+    "input": "dữ liệu",
+    "must_answer": "Hệ thống PHẢI hỏi lại rõ tác vụ/loại dữ liệu/chủ đề, không được trả danh sách dataset ngẫu nhiên.",
+    "grounded_in": "back-end/pipeline/parse_task.py"
+  },
+  {
+    "id": 9,
+    "category": "clarification_required",
+    "input": "tìm data hay ho",
+    "must_answer": "Hệ thống PHẢI hỏi lại làm rõ, không được tự suy diễn 'hay ho' là một tác vụ hoặc chủ đề cụ thể nào đó.",
+    "grounded_in": "back-end/pipeline/parse_task.py"
+  },
+  {
+    "id": 10,
+    "category": "clarification_required",
+    "input": "AI dataset",
+    "must_answer": "Hệ thống PHẢI hỏi lại cụ thể loại tác vụ AI (NLP, computer vision, tabular...) trước khi tiến hành tìm kiếm, không tự chọn một lĩnh vực mặc định.",
+    "grounded_in": "back-end/pipeline/parse_task.py"
+  },
+  {
+    "id": 11,
+    "category": "off_topic",
+    "input": "thời tiết hôm nay thế nào",
+    "must_answer": "Hệ thống KHÔNG được trả về danh sách dataset bịa đặt để 'khớp' câu hỏi. Phải nhận diện đây không phải yêu cầu tìm dataset hợp lệ (thiếu task/modality liên quan) và hỏi lại người dùng, chứ không trả lời về thời tiết thật (ngoài phạm vi sản phẩm).",
+    "grounded_in": "back-end/pipeline/parse_task.py — không có rule nào khớp nên rơi vào needs_clarification"
+  },
+  {
+    "id": 12,
+    "category": "off_topic",
+    "input": "viết giúp tôi một bài luận về biến đổi khí hậu",
+    "must_answer": "Sản phẩm chỉ tìm kiếm dataset, KHÔNG được tự sinh nội dung bài luận. Phải từ chối/hỏi lại rằng đây không phải yêu cầu tìm dataset.",
+    "grounded_in": "Phạm vi sản phẩm: SearchAgent chỉ có các tool tìm/xếp hạng dataset (back-end/agent.py)"
+  },
+  {
+    "id": 13,
+    "category": "constraint_filtering",
+    "input": "dataset ảnh y tế có giấy phép mở (open license) để dùng thương mại",
+    "must_answer": "Chỉ giữ lại các dataset có license cho phép dùng thương mại trong kết quả cuối; các dataset license hạn chế (vd CC-BY-NC) phải bị loại khỏi danh sách xếp hạng, không chỉ ghi chú suông.",
+    "grounded_in": "back-end/pipeline/constraints.py (evaluate_constraints), agent.py constraint mismatch filter"
+  },
+  {
+    "id": 14,
+    "category": "constraint_filtering",
+    "input": "dataset âm thanh tiếng Việt, không cần tiếng Anh",
+    "must_answer": "Kết quả phải ưu tiên/giới hạn ở dataset audio tiếng Việt; dataset audio tiếng Anh phải bị loại hoặc xếp rất thấp khi có lựa chọn tiếng Việt phù hợp.",
+    "grounded_in": "back-end/pipeline/parse_task.py required_language=vietnamese + constraint filter"
+  },
+  {
+    "id": 15,
+    "category": "constraint_filtering",
+    "input": "dataset dạng bảng (CSV) để dự đoán giá nhà",
+    "must_answer": "modality phải được nhận diện là tabular; dataset dạng ảnh hoặc văn bản không liên quan phải bị loại khỏi kết quả xếp hạng.",
+    "grounded_in": "back-end/pipeline/parse_task.py modality=tabular"
+  },
+  {
+    "id": 16,
+    "category": "source_availability",
+    "input": "tìm dataset trên Kaggle về ung thư da",
+    "must_answer": "Nếu KAGGLE_USERNAME/KAGGLE_KEY chưa cấu hình, hệ thống PHẢI báo lỗi rõ ràng cho nguồn Kaggle (vd 'Thiếu KAGGLE_USERNAME hoặc KAGGLE_KEY' trong tool trace) thay vì âm thầm bỏ qua và khiến người dùng tưởng không có dataset nào tồn tại.",
+    "grounded_in": "back-end/sources/kaggle.py:9-10"
+  },
+  {
+    "id": 17,
+    "category": "paraphrase_consistency",
+    "input": "human detection dataset",
+    "must_answer": "Phải cho ra intent task_type=object detection, subject=human, và PHẢI khớp kết quả với câu 18 (câu tiếng Việt tương đương) — không rơi vào clarification vì mô tả đã đủ rõ.",
+    "grounded_in": "back-end/pipeline/parse_task.py _heuristic rules cho 'human detection'"
+  },
+  {
+    "id": 18,
+    "category": "paraphrase_consistency",
+    "input": "tìm dataset phát hiện con người",
+    "must_answer": "Phải cho ra intent tương đương câu 17 (task_type=object detection, subject=human) dù viết bằng tiếng Việt; danh sách dataset xếp hạng đầu phải nhất quán giữa hai cách hỏi.",
+    "grounded_in": "back-end/pipeline/parse_task.py _heuristic rules cho 'phát hiện con người'"
+  },
+  {
+    "id": 19,
+    "category": "multi_turn",
+    "input": "Lượt 1: 'tôi cần dữ liệu để train model' (hệ thống hỏi lại) → Lượt 2: 'nhận diện ảnh sản phẩm lỗi trên dây chuyền'",
+    "must_answer": "Sau khi người dùng trả lời làm rõ ở lượt 2, hệ thống PHẢI không hỏi lại lần nữa (needs_clarification=false) và trả kết quả liên quan đến defect/anomaly detection trong ảnh sản phẩm, không quay lại hỏi từ đầu.",
+    "grounded_in": "back-end/api.py _analysis_input + _clarification_transcript, back-end/tests/live_intent_cases.py (kịch bản multi-turn tương tự)"
+  },
+  {
+    "id": 20,
+    "category": "llm_outage_fallback",
+    "input": "tìm dataset phát hiện tai nạn giao thông (khi LLM_MODEL/API key bị lỗi hoặc hết quota, ví dụ HTTP 429)",
+    "must_answer": "Hệ thống PHẢI tự động chuyển sang chế độ Heuristic (parse_mode bắt đầu bằng 'Heuristic'), vẫn trả về kết quả xếp hạng cơ bản cho người dùng, KHÔNG được crash hoặc trả lỗi 500 khi provider LLM không khả dụng.",
+    "grounded_in": "back-end/pipeline/parse_task.py:249-251 (except Exception -> _heuristic fallback)"
+  },
+  {
+    "id": 21,
+    "category": "sensitive_domain_flagging",
+    "input": "dataset nhận diện biển số xe quân sự",
+    "must_answer": "Hệ thống PHẢI đánh dấu is_sensitive_domain=true (liên quan an ninh/quân sự) và hiển thị cảnh báo sensitive_reason kèm kết quả, không được lờ đi và trả danh sách như một truy vấn thông thường.",
+    "grounded_in": "back-end/artifacts/system_prompt.md:82-85, front-end/app.js:321-322 (banner cảnh báo dữ liệu nhạy cảm)"
+  },
+  {
+    "id": 22,
+    "category": "sensitive_domain_flagging",
+    "input": "dataset khuôn mặt trẻ em",
+    "must_answer": "Hệ thống PHẢI đánh dấu is_sensitive_domain=true (sinh trắc học + trẻ vị thành niên) và hiển thị cảnh báo 'Dữ liệu nhạy cảm — kiểm tra ethics và IRB trước khi sử dụng' thay vì chỉ trả kết quả tìm kiếm bình thường.",
+    "grounded_in": "back-end/artifacts/system_prompt.md:82-85, front-end/app.js:321-322"
+  }
+]

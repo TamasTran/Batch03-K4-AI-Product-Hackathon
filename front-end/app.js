@@ -112,7 +112,7 @@ function renderHistoryList() {
         <span>${escapeHtml(item.query)}</span>
         <small>${(item.verified?.length || 0) + (item.unverified?.length || 0)} kết quả</small>
       </button>`).join("")
-    : '<p class="px-2 py-3 text-xs text-soft">Chưa có lượt tìm kiếm nào.</p>';
+    : '<p class="thread-empty">Chưa có lượt tìm kiếm nào.</p>';
 }
 
 function closeSidebar() {
