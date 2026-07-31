@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
 from dataclasses import dataclass
 from typing import Any
 from urllib.parse import quote
@@ -11,6 +12,8 @@ import requests
 
 
 LLM_TEMPERATURE = 0
+LLM_NETWORK_ATTEMPTS = 3
+LLM_RETRY_DELAYS = (0.35, 1.0)
 
 
 @dataclass(frozen=True)
@@ -109,6 +112,28 @@ def _raise_provider_error(response: requests.Response, provider: str) -> None:
         raise RuntimeError(f"{provider} API trả HTTP {response.status_code}")
 
 
+def _post_with_connection_retry(**kwargs: Any) -> requests.Response:
+    """Retry transient connection setup/timeouts, never provider HTTP errors."""
+    for attempt in range(LLM_NETWORK_ATTEMPTS):
+        try:
+            return requests.post(**kwargs)
+        except (requests.ConnectionError, requests.Timeout):
+            if attempt >= LLM_NETWORK_ATTEMPTS - 1:
+                raise
+            time.sleep(LLM_RETRY_DELAYS[attempt])
+    raise AssertionError("unreachable")
+
+
+def describe_llm_error(exc: Exception) -> str:
+    """Return a concise UI-safe reason while detailed errors stay in server logs."""
+    if isinstance(exc, (requests.ConnectionError, requests.Timeout)):
+        return f"lỗi kết nối tạm thời sau {LLM_NETWORK_ATTEMPTS} lần thử"
+    text = str(exc).strip().replace("\n", " ")
+    if len(text) > 180:
+        text = f"{text[:177]}..."
+    return f"{type(exc).__name__}: {text}" if text else type(exc).__name__
+
+
 def _anthropic_text(config: LLMConfig, system: str, user: str, max_tokens: int) -> str:
     text, _ = _anthropic_response(config, system, user, max_tokens)
     return text
@@ -166,8 +191,8 @@ def _openai_compatible_response(
     if config.provider == "openrouter":
         headers["HTTP-Referer"] = _value("OPENROUTER_SITE_URL") or "http://localhost"
         headers["X-Title"] = _value("OPENROUTER_APP_NAME") or "DataScout AI"
-    response = requests.post(
-        f"{endpoint}/chat/completions",
+    response = _post_with_connection_retry(
+        url=f"{endpoint}/chat/completions",
         headers=headers,
         json={
             "model": config.model,
@@ -206,8 +231,8 @@ def _gemini_response(
     config: LLMConfig, system: str, user: str, max_tokens: int
 ) -> tuple[str, dict[str, Any]]:
     model = quote(config.model, safe="-_.")
-    response = requests.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+    response = _post_with_connection_retry(
+        url=f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
         headers={"x-goog-api-key": config.api_key, "Content-Type": "application/json"},
         json={
             "system_instruction": {"parts": [{"text": system}]},

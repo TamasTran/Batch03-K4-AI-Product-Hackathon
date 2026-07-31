@@ -8,6 +8,7 @@ from .llm import (
     LLM_TEMPERATURE,
     call_json,
     call_text_with_metadata,
+    describe_llm_error,
     extract_json,
     get_client,
     llm_label,
@@ -278,7 +279,12 @@ def _heuristic_verified(intent: dict, candidates: list[dict]) -> list[dict]:
     output = []
     for item in candidates:
         haystack = " ".join(
-            [item["id"], item.get("description", ""), " ".join(item.get("tags", []))]
+            [
+                item["id"],
+                item.get("title", ""),
+                item.get("description", ""),
+                " ".join(item.get("tags", [])),
+            ]
         )
         overlap = len(wanted & _tokens(haystack))
         base = min(5, 2 + overlap)
@@ -340,6 +346,7 @@ def _llm_rank_batch(
     verified_compact = [{
         "id": x["id"],
         "source": x["source"],
+        "title": x.get("title", ""),
         "downloads": x.get("downloads"),
         "tags": x.get("tags", [])[:12],
         "license": x.get("license"),
@@ -389,6 +396,10 @@ def _llm_rank_batch(
         raise ValueError("LLM phải trả JSON object gồm verified và unverified")
     result.setdefault("verified", [])
     result.setdefault("unverified", [])
+    if not isinstance(result["verified"], list) or not isinstance(
+        result["unverified"], list
+    ):
+        raise ValueError("LLM ranking phải trả verified và unverified là JSON array")
     allowed_verified = {x["id"] for x in verified}
     allowed_unverified = {x["id"] for x in unverified}
     all_allowed = allowed_verified | allowed_unverified
@@ -399,11 +410,45 @@ def _llm_rank_batch(
         raise ValueError("LLM trả candidate ngoài danh sách")
     # Drop wrong-lane objects instead of routing them: their score schema follows
     # the emitted lane and is therefore unsafe for the authoritative input lane.
+    verified_fields = {
+        "task_match",
+        "domain_fit",
+        "label_overlap",
+        "size_adequacy",
+        "access_type",
+        "reasoning",
+    }
+    unverified_fields = {"task_match", "domain_fit", "reasoning"}
+
+    def valid_score_row(row: object, allowed_ids: set[str], fields: set[str]) -> bool:
+        if not isinstance(row, dict) or row.get("id") not in allowed_ids:
+            return False
+        if not fields <= set(row):
+            logger.warning(
+                "LLM ranking omitted required fields for candidate %s: %s",
+                row.get("id"),
+                sorted(fields - set(row)),
+            )
+            return False
+        try:
+            score_fields = fields - {"access_type", "reasoning"}
+            return all(1 <= float(row[field]) <= 5 for field in score_fields)
+        except (TypeError, ValueError):
+            logger.warning(
+                "LLM ranking returned invalid score for candidate %s",
+                row.get("id"),
+            )
+            return False
+
     result["verified"] = [
-        row for row in result["verified"] if row.get("id") in allowed_verified
+        row
+        for row in result["verified"]
+        if valid_score_row(row, allowed_verified, verified_fields)
     ]
     result["unverified"] = [
-        row for row in result["unverified"] if row.get("id") in allowed_unverified
+        row
+        for row in result["unverified"]
+        if valid_score_row(row, allowed_unverified, unverified_fields)
     ]
     result["_usage"] = usage
     return result
@@ -573,6 +618,13 @@ def rank_candidates(
             )
             ranked_verified = ranked_groups["verified"]
             ranked_unverified = ranked_groups["unverified"]
+            if (verified or unverified) and not (
+                ranked_verified or ranked_unverified
+            ):
+                raise ValueError(
+                    "LLM ranking trả verified và unverified đều rỗng "
+                    "dù candidate input không rỗng"
+                )
             llm_scored_verified = len(ranked_verified)
             llm_scored_unverified = len(ranked_unverified)
             returned_verified_ids = {
@@ -619,7 +671,7 @@ def rank_candidates(
             ranked_unverified = _heuristic_unverified(intent, unverified)
             heuristic_fallback_verified = len(verified)
             heuristic_fallback_unverified = len(unverified)
-            mode = f"Heuristic (LLM lỗi: {exc})"
+            mode = f"Heuristic (LLM lỗi: {describe_llm_error(exc)})"
     else:
         ranked_verified = _heuristic_verified(intent, verified)
         ranked_unverified = _heuristic_unverified(intent, unverified)

@@ -1,4 +1,4 @@
-from .llm import call_json, get_client, llm_label
+from .llm import call_json, describe_llm_error, get_client, llm_label
 from .prompts import step_prompt
 
 
@@ -153,14 +153,32 @@ def _heuristic(text: str) -> dict:
     else:
         language = "any"
     subject_rules = [
+        (
+            (
+                "construction helmet",
+                "safety helmet",
+                "hard hat",
+                "hardhat",
+                "protective helmet",
+            ),
+            "construction helmet",
+        ),
         (("người đi bộ", "pedestrian"), "pedestrian"),
-        (("khuôn mặt", "face"), "face"),
+        (("khuôn mặt", "face", "facial"), "face"),
         (("con người", "human", "person", "people", "crowd"), "human"),
+        (("xe", "vehicle", "car ", "automobile", "truck", "ô tô", "phương tiện"), "vehicle"),
+        (("sentiment", "cảm xúc", "opinion", "polarity"), "sentiment"),
         (("chữ viết", "handwritten", "handwriting"), "handwriting"),
         (("văn bản", "document", "ocr", "word image", "text image", "containing text", "text recognition"), "text"),
         (("bình luận sản phẩm", "product review", "e-commerce", "thương mại điện tử"), "product reviews"),
         (("mạng xã hội", "social media", "twitter", "facebook"), "social media"),
         (("tin tức", "news"), "news"),
+        (("spam", "thư rác"), "spam"),
+        (("fraud", "gian lận", "lừa đảo"), "fraud"),
+        (("động vật", "animal", "wildlife"), "animal"),
+        (("cây trồng", "plant", "crop", "leaf", "lá cây"), "plant"),
+        (("thời tiết", "weather", "climate"), "weather"),
+        (("x-ray", "x-quang", "xray", "phổi", "lung", "chest", "pneumonia", "viêm phổi"), "medical imaging"),
         (("y tế", "medical", "biomedical"), "medical"),
     ]
     subject = "general"
@@ -174,15 +192,51 @@ def _heuristic(text: str) -> dict:
         else []
     )
     keywords = []
-    if language != "any":
-        keywords.append(f"{language} {task}")
     if subject != "general":
-        keywords.append(
-            f"{language + ' ' if language != 'any' else ''}{subject}"
-        )
-    keywords.append(task)
-    if subject != "general":
-        keywords.append(f"{task} {subject}")
+        # Detect if subject is already part of the task name
+        subject_in_task = subject.lower() in task.lower()
+        # When language is specified, language-specific keyword goes first (most specific)
+        if language != "any":
+            if subject_in_task:
+                keywords.append(f"{language} {task}")
+            else:
+                keywords.append(f"{language} {subject} {task}")
+        # Primary: subject + task
+        if subject_in_task:
+            keywords.append(f"{task} dataset")
+        else:
+            keywords.append(f"{subject} {task} dataset")
+        # Use subject synonyms for broader coverage
+        subject_synonyms = {
+            "human": ["person", "pedestrian", "people"],
+            "pedestrian": ["person", "human", "people"],
+            "face": ["facial", "human face"],
+            "vehicle": ["car", "automobile", "traffic"],
+            "sentiment": ["opinion", "polarity", "review sentiment"],
+            "text": ["document", "ocr"],
+            "handwriting": ["handwritten", "manuscript"],
+            "medical": ["clinical", "biomedical"],
+            "medical imaging": ["x-ray", "chest radiograph", "lung"],
+            "news": ["article", "headline"],
+            "spam": ["email spam", "junk mail"],
+            "fraud": ["fraudulent transaction", "credit card fraud"],
+            "animal": ["wildlife", "species"],
+            "plant": ["crop", "leaf disease"],
+            "weather": ["climate", "meteorological"],
+            "product reviews": ["customer review", "e-commerce review"],
+            "construction helmet": ["safety helmet", "hard hat", "PPE"],
+        }
+        synonyms = subject_synonyms.get(subject, [])
+        for synonym in synonyms[:2]:
+            keywords.append(f"{synonym} {task} dataset")
+        # Fallback: task + subject (different word order for coverage)
+        if not subject_in_task:
+            keywords.append(f"{task} {subject}")
+    else:
+        # Only when subject is general, allow generic keywords
+        if language != "any":
+            keywords.append(f"{language} {task}")
+        keywords.append(f"{task} dataset")
     hard_constraints = []
     if language != "any":
         hard_constraints.append(f"language={language}")
@@ -247,5 +301,7 @@ def parse_task(text: str) -> tuple[dict, str]:
             result.setdefault("hard_constraints", [])
             return apply_confidence_policy(result), f"LLM ({llm_label()})"
         except Exception as exc:
-            return _heuristic(text), f"Heuristic (LLM lỗi: {exc})"
+            return _heuristic(text), (
+                f"Heuristic (LLM lỗi: {describe_llm_error(exc)})"
+            )
     return _heuristic(text), "Heuristic (chưa cấu hình LLM)"

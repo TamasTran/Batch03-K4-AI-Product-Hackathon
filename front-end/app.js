@@ -1,4 +1,6 @@
 const API_BASE_URL = (window.DATASCOUT_CONFIG?.API_BASE_URL || "http://localhost:8000/api/v1").replace(/\/$/, "");
+const CLIENT_VERSION = window.DATASCOUT_CONFIG?.CLIENT_VERSION || "1.1.0";
+const CLIENT_BUILD_HASH = window.DATASCOUT_CONFIG?.CLIENT_BUILD_HASH || "static-frontend";
 let pendingClarificationContext = null;
 const HISTORY_KEY = "datascout.searchHistory.v1";
 const MAX_HISTORY_ITEMS = 20;
@@ -59,6 +61,20 @@ async function loadConfig() {
     const config = await response.json();
     setConnectionState("API sẵn sàng", true);
     elements.modelName.textContent = config.llm_enabled ? config.llm_model : "Transparent heuristic";
+    const availableSources = new Set(config.available_sources || []);
+    document.querySelectorAll('input[name="source"]').forEach((input) => {
+      const available = availableSources.has(input.value);
+      input.disabled = !available;
+      if (!available) input.checked = false;
+      input.closest("label")?.classList.toggle("opacity-50", !available);
+    });
+    if (!config.web_search_configured) {
+      elements.webFallback.checked = false;
+      elements.webFallback.disabled = true;
+      elements.webSearchButton.disabled = true;
+      elements.webSearchButton.title = "Chưa cấu hình web search API key";
+      syncWebSearchButton();
+    }
     elements.configFacts.innerHTML = `
       <div class="flex justify-between gap-4"><span>LLM engine</span><b class="text-ink">${config.llm_enabled ? escapeHtml(config.llm_model) : "Heuristic"}</b></div>
       <div class="flex justify-between gap-4"><span>Kaggle API</span><b class="text-ink">${config.kaggle_configured ? "Sẵn sàng" : "Chưa có key"}</b></div>
@@ -396,6 +412,8 @@ async function submitSearch(query) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         query,
+        client_version: CLIENT_VERSION,
+        client_build_hash: CLIENT_BUILD_HASH,
         clarification_context: pendingClarificationContext,
         enabled_sources: enabledSources,
         web_fallback_enabled: elements.webFallback.checked,

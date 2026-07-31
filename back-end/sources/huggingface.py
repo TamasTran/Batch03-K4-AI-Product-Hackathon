@@ -15,8 +15,17 @@ def search_hf_datasets(keyword: str, limit: int = 12, timeout: int = 12, **_: An
         if not dataset_id:
             continue
         card = item.get("cardData") or {}
+        # The Hub list API commonly omits a separate display-name field.  The
+        # repository basename is still the dataset's real name (and avoids
+        # passing the full owner/id identifier through as a fake title).
+        title = (
+            card.get("pretty_name")
+            or item.get("name")
+            or dataset_id.rstrip("/").rsplit("/", 1)[-1]
+        )
         results.append({
             "id": dataset_id,
+            "title": title,
             "url": f"https://huggingface.co/datasets/{dataset_id}",
             "source": "Hugging Face",
             "downloads": item.get("downloads"),

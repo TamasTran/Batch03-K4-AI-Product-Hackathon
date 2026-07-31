@@ -29,6 +29,17 @@ TASK_TYPE_KEYWORDS = {
     "analysis",
 }
 
+GENERIC_SUBJECTS = {
+    "",
+    "any",
+    "general",
+    "generic",
+    "other",
+    "unknown",
+    "data",
+    "dataset",
+}
+
 SUBJECT_ALIASES = {
     "human": {
         "human", "person", "persons", "people", "pedestrian", "pedestrians",
@@ -128,7 +139,9 @@ def _subject_keyword_groups(intent: dict[str, Any]) -> list[set[str]]:
     """
     subject = str(
         intent.get("subject") or intent.get("preferred_domain") or "general"
-    ).lower()
+    ).strip().lower()
+    if subject in GENERIC_SUBJECTS:
+        return set()
     base_tokens = _tokens(subject) - TASK_TYPE_KEYWORDS
     groups: list[set[str]] = []
     for token in base_tokens:

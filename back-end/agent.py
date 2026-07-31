@@ -4,12 +4,44 @@ from dataclasses import dataclass, field
 from concurrent.futures import ThreadPoolExecutor
 import logging
 from typing import Any, Callable
+from urllib.parse import quote, quote_plus
 
 from pipeline.fallback_suggestions import build_guidance
 from tools import TOOL_FUNCTIONS
 
 
 logger = logging.getLogger(__name__)
+
+SENSITIVE_ARG_NAMES = {
+    "key",
+    "api_key",
+    "token",
+    "password",
+    "serpapi_api_key",
+    "bing_search_api_key",
+    "google_cse_api_key",
+}
+
+
+def _redact_tool_error(exc: Exception, args: dict[str, Any]) -> str:
+    """Remove credentials from provider errors, including URL-encoded values."""
+    message = f"{type(exc).__name__}: {exc}"
+    for name, value in args.items():
+        lowered = name.lower()
+        if not value or not (
+            lowered in SENSITIVE_ARG_NAMES
+            or lowered.endswith(("_api_key", "_token", "_password"))
+        ):
+            continue
+        secret = str(value)
+        for representation in {
+            secret,
+            quote(secret, safe=""),
+            quote_plus(secret, safe=""),
+        }:
+            if representation:
+                message = message.replace(representation, "***")
+    return message
 
 
 def _candidate_debug_ref(candidate: dict[str, Any]) -> dict[str, Any]:
@@ -91,7 +123,14 @@ class SearchAgent:
     def _call(self, name: str, args: dict[str, Any], func: Callable[..., Any] | None = None) -> Any:
         implementation = func or TOOL_FUNCTIONS[name]
         safe_args = {
-            key: ("***" if any(part in key.lower() for part in ("key", "token", "password")) and value else value)
+            key: (
+                "***"
+                if (
+                    key.lower() in SENSITIVE_ARG_NAMES
+                    or key.lower().endswith(("_api_key", "_token", "_password"))
+                ) and value
+                else value
+            )
             for key, value in args.items()
             if key != "candidates"
         }
@@ -106,11 +145,22 @@ class SearchAgent:
         try:
             event.result = implementation(**args)
             event.status = "success"
+            if name == "search_registry":
+                candidate_count = (
+                    len(event.result) if isinstance(event.result, list) else 0
+                )
+                event.args["candidate_count"] = candidate_count
+                logger.info(
+                    "search_registry source=%s keyword=%r candidate_count=%d",
+                    args.get("source_name"),
+                    args.get("keyword"),
+                    candidate_count,
+                )
             return event.result
         except Exception as exc:
             event.status = "error"
-            event.error = f"{type(exc).__name__}: {exc}"
-            raise
+            event.error = _redact_tool_error(exc, args)
+            raise RuntimeError(event.error) from exc
 
     def run(self, query: str) -> AgentRun:
         self.events = []
@@ -208,6 +258,40 @@ class SearchAgent:
             "deduplicate_candidates",
             {"candidates": candidates, "intent": intent},
         )
+        rankable_candidates = [
+            candidate
+            for candidate in candidates
+            if candidate.get("title")
+            and str(candidate["title"]).strip() != str(candidate.get("id", "")).strip()
+        ]
+        missing_metadata = [
+            _candidate_debug_ref(candidate)
+            for candidate in candidates
+            if candidate not in rankable_candidates
+        ]
+        excluded_count = len(missing_metadata)
+        message = (
+            f"{excluded_count} candidate bị loại vì thiếu metadata, "
+            "enrichment có thể đang lỗi"
+        )
+        if excluded_count:
+            logger.warning(message)
+        else:
+            logger.info("Metadata guard passed all %d candidates", len(candidates))
+        self.events.append(ToolEvent(
+            tool="filter_missing_metadata",
+            args={
+                "candidate_count": len(candidates),
+                "excluded_count": excluded_count,
+                "excluded_candidates": missing_metadata,
+            },
+            status="success",
+            result={
+                "message": message,
+                "rankable_candidate_count": len(rankable_candidates),
+            },
+        ))
+        candidates = rankable_candidates
         rank_result = self._call(
             "rank_datasets", {"intent": intent, "candidates": candidates}
         )

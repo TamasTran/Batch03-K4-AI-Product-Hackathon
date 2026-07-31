@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 from pathlib import Path
 import logging
+from datetime import datetime, timezone
 from typing import Any
 from uuid import uuid4
 
@@ -24,10 +25,66 @@ load_dotenv(Path(__file__).with_name(".env"))
 SOURCE_NAMES = {
     "Hugging Face",
     "Kaggle",
-    "Papers with Code",
     "OpenML",
     "Zenodo",
 }
+SOURCE_ORDER = (
+    "Hugging Face",
+    "Kaggle",
+    "OpenML",
+    "Zenodo",
+)
+EXPECTED_CLIENT_VERSION = os.getenv("EXPECTED_CLIENT_VERSION", "1.1.0")
+MAX_CLIENT_BUILD_AGE_DAYS = int(os.getenv("MAX_CLIENT_BUILD_AGE_DAYS", "30"))
+
+
+def _log_client_version(payload: SearchRequest, request_id: str) -> None:
+    if not payload.client_version or not payload.client_build_hash:
+        logger.warning(
+            "Request %s đến từ client không có version/build hash; "
+            "có thể đang test nhầm code cũ",
+            request_id,
+        )
+    elif payload.client_version != EXPECTED_CLIENT_VERSION:
+        logger.warning(
+            "Request %s đến từ client version cũ/không khớp "
+            "(client=%s, expected=%s, build=%s); có thể đang test nhầm code cũ",
+            request_id,
+            payload.client_version,
+            EXPECTED_CLIENT_VERSION,
+            payload.client_build_hash,
+        )
+    if payload.client_built_at:
+        try:
+            built_at = datetime.fromisoformat(
+                payload.client_built_at.replace("Z", "+00:00")
+            )
+            age = datetime.now(timezone.utc) - built_at.astimezone(timezone.utc)
+            if age.days > MAX_CLIENT_BUILD_AGE_DAYS:
+                logger.warning(
+                    "Request %s đến từ client build %d ngày tuổi "
+                    "(threshold=%d); có thể đang test nhầm code cũ",
+                    request_id,
+                    age.days,
+                    MAX_CLIENT_BUILD_AGE_DAYS,
+                )
+        except ValueError:
+            logger.warning(
+                "Request %s có client_built_at không hợp lệ: %r",
+                request_id,
+                payload.client_built_at,
+            )
+
+
+def _effective_sources(requested: list[str], request_id: str) -> list[str]:
+    requested_set = set(requested)
+    effective = [source for source in SOURCE_ORDER if source in requested_set]
+    logger.info(
+        "Request %s dùng source selection=%s",
+        request_id,
+        effective,
+    )
+    return effective
 
 
 def _analysis_input(query: str, clarification_context: str | None) -> str:
@@ -69,12 +126,16 @@ def _cors_origins() -> list[str]:
 
 app = FastAPI(
     title="DataScout AI API",
-    version="1.0.0",
+    version="1.1.0",
     description="REST API cho agent tìm kiếm và xếp hạng dataset đa nguồn.",
 )
 app.add_middleware(
     CORSMiddleware,
     allow_origins=_cors_origins(),
+    # Static servers and Vite may move to 3001/5174 when their preferred port
+    # is occupied. Keep local development functional without opening CORS to
+    # arbitrary network hosts.
+    allow_origin_regex=r"^https?://(?:localhost|127\.0\.0\.1)(?::\d+)?$",
     allow_credentials=False,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["Content-Type"],
@@ -84,13 +145,15 @@ app.add_middleware(
 
 @app.get("/api/v1/health", response_model=HealthResponse, tags=["system"])
 def health() -> HealthResponse:
-    return HealthResponse(status="ok", service="datascout-api", version="1.0.0")
+    return HealthResponse(status="ok", service="datascout-api", version="1.1.0")
 
 
 @app.get("/api/v1/config", response_model=ConfigResponse, tags=["system"])
 def config() -> ConfigResponse:
     llm = get_llm_config()
     return ConfigResponse(
+        backend_version="1.1.0",
+        expected_client_version=EXPECTED_CLIENT_VERSION,
         llm_enabled=llm is not None,
         llm_provider=llm.provider if llm else None,
         llm_model=llm.model if llm else None,
@@ -108,6 +171,7 @@ def config() -> ConfigResponse:
 def search(payload: SearchRequest, response: Response) -> SearchResponse:
     request_id = uuid4().hex
     response.headers["X-Request-ID"] = request_id
+    _log_client_version(payload, request_id)
     unknown_sources = set(payload.enabled_sources) - SOURCE_NAMES
     if unknown_sources:
         raise HTTPException(
@@ -118,9 +182,26 @@ def search(payload: SearchRequest, response: Response) -> SearchResponse:
         raise HTTPException(status_code=422, detail="Hãy bật ít nhất một nguồn dữ liệu.")
 
     effective_query = _analysis_input(payload.query, payload.clarification_context)
+    effective_sources = _effective_sources(payload.enabled_sources, request_id)
+    logger.info(
+        "Request %s client_version=%s build_hash=%s "
+        "web_fallback_enabled=%s requested_sources=%s effective_sources=%s",
+        request_id,
+        payload.client_version,
+        payload.client_build_hash,
+        payload.web_fallback_enabled,
+        payload.enabled_sources,
+        effective_sources,
+    )
+    audit_request = {
+        **payload.model_dump(),
+        "requested_sources": list(payload.enabled_sources),
+        "effective_sources": effective_sources,
+        "effective_web_fallback_enabled": payload.web_fallback_enabled,
+    }
 
     agent = SearchAgent(
-        enabled_sources=payload.enabled_sources,
+        enabled_sources=effective_sources,
         limit=payload.limit,
         credentials={
             "username": os.getenv("KAGGLE_USERNAME", ""),
@@ -140,7 +221,7 @@ def search(payload: SearchRequest, response: Response) -> SearchResponse:
         try:
             path = persist_run(
                 request_id=request_id,
-                request=payload.model_dump(),
+                request=audit_request,
                 status="error",
                 tool_events=agent.events,
                 error=error_message,
@@ -183,6 +264,7 @@ def search(payload: SearchRequest, response: Response) -> SearchResponse:
                 args=event.args,
                 status=event.status,
                 error=event.error,
+                result=event.result,
             )
             for event in run.tool_events
         ],
@@ -190,7 +272,7 @@ def search(payload: SearchRequest, response: Response) -> SearchResponse:
     try:
         path = persist_run(
             request_id=request_id,
-            request=payload.model_dump(),
+            request=audit_request,
             status=run.status,
             tool_events=run.tool_events,
             final_result={

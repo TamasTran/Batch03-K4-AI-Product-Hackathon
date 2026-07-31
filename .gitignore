@@ -10,16 +10,13 @@ __pycache__/
 .env
 back-end/logs/*.json
 back-end/logs/*.tmp
-back-end/tests/.eval_*.json
 back-end/tests/.eval_*.log
+back-end/tests/.eval_*.json
 *.env
 !.env.example
 # Runtime logs
 *.log
 back-end/logs/
-
-# Evaluation runtime output
-back-end/tests/.eval_*
 
 # Coverage
 .coverage
@@ -34,8 +31,6 @@ coverage.xml
 Thumbs.db
 desktop.ini
 
-# Private hackathon data
-data/vlearn-pack/**
-!data/vlearn-pack/README.md
-!data/vlearn-pack/chatlog/DATA_DICTIONARY.md
-!data/vlearn-pack/transcript/README.md
+# Node / Vite
+node_modules/
+dist/

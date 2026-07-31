@@ -20,8 +20,14 @@ def search_kaggle_datasets(
         ref = item.get("ref")
         if not ref:
             continue
+        title = (
+            item.get("title")
+            or item.get("subtitle")
+            or ref.rstrip("/").rsplit("/", 1)[-1]
+        )
         results.append({
             "id": ref,
+            "title": title,
             "url": item.get("url") or f"https://www.kaggle.com/datasets/{ref}",
             "source": "Kaggle",
             "downloads": item.get("downloadCount"),

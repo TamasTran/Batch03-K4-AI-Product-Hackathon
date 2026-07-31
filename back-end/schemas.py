@@ -12,6 +12,8 @@ class HealthResponse(BaseModel):
 
 
 class ConfigResponse(BaseModel):
+    backend_version: str
+    expected_client_version: str
     llm_enabled: bool
     llm_provider: str | None = None
     llm_model: str | None = None
@@ -22,9 +24,14 @@ class ConfigResponse(BaseModel):
 
 class SearchRequest(BaseModel):
     query: str = Field(min_length=3, max_length=2000)
+    client_version: str | None = Field(default=None, max_length=50)
+    client_build_hash: str | None = Field(default=None, max_length=100)
+    client_built_at: str | None = Field(default=None, max_length=50)
     clarification_context: str | None = Field(default=None, max_length=4000)
     enabled_sources: list[str] = Field(
-        default_factory=lambda: ["Hugging Face", "OpenML", "Zenodo"]
+        default_factory=lambda: [
+            "Hugging Face", "Kaggle", "OpenML", "Zenodo"
+        ]
     )
     web_fallback_enabled: bool = True
     web_domains: list[str] | None = None
@@ -44,6 +51,7 @@ class ToolEventResponse(BaseModel):
     args: dict[str, Any]
     status: str
     error: str | None = None
+    result: Any = None
 
 
 class SearchResponse(BaseModel):
