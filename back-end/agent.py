@@ -258,40 +258,7 @@ class SearchAgent:
             "deduplicate_candidates",
             {"candidates": candidates, "intent": intent},
         )
-        rankable_candidates = [
-            candidate
-            for candidate in candidates
-            if candidate.get("title")
-            and str(candidate["title"]).strip() != str(candidate.get("id", "")).strip()
-        ]
-        missing_metadata = [
-            _candidate_debug_ref(candidate)
-            for candidate in candidates
-            if candidate not in rankable_candidates
-        ]
-        excluded_count = len(missing_metadata)
-        message = (
-            f"{excluded_count} candidate bị loại vì thiếu metadata, "
-            "enrichment có thể đang lỗi"
-        )
-        if excluded_count:
-            logger.warning(message)
-        else:
-            logger.info("Metadata guard passed all %d candidates", len(candidates))
-        self.events.append(ToolEvent(
-            tool="filter_missing_metadata",
-            args={
-                "candidate_count": len(candidates),
-                "excluded_count": excluded_count,
-                "excluded_candidates": missing_metadata,
-            },
-            status="success",
-            result={
-                "message": message,
-                "rankable_candidate_count": len(rankable_candidates),
-            },
-        ))
-        candidates = rankable_candidates
+
         rank_result = self._call(
             "rank_datasets", {"intent": intent, "candidates": candidates}
         )
