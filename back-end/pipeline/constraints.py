@@ -128,36 +128,21 @@ def _task_type_keywords(intent: dict[str, Any]) -> set[str]:
     return _tokens(str(intent.get("task_type") or "")) & TASK_TYPE_KEYWORDS
 
 
-def _subject_keyword_groups(intent: dict[str, Any]) -> list[set[str]]:
-    """Independent subject terms that must EACH have evidence.
-
-    Each group is a set of interchangeable synonyms (OR within the group,
-    e.g. person/pedestrian/face). Distinct groups are independent qualifiers
-    of a compound subject (AND across groups, e.g. "bank" AND "churn") — a
-    dataset about healthcare churn must not count as evidence for "bank
-    churn" just because it shares the word "churn".
-    """
+def _subject_keywords(intent: dict[str, Any]) -> set[str]:
+    """Return content-bearing subject terms, excluding generic task words."""
     subject = str(
         intent.get("subject") or intent.get("preferred_domain") or "general"
     ).strip().lower()
     if subject in GENERIC_SUBJECTS:
         return set()
     base_tokens = _tokens(subject) - TASK_TYPE_KEYWORDS
-    groups: list[set[str]] = []
+    keywords: set[str] = set()
     for token in base_tokens:
         aliases = SUBJECT_ALIASES.get(token)
         if aliases:
-            groups.append(aliases)
+            keywords.update(aliases)
         elif len(token) > 2:
-            groups.append({token})
-    return groups
-
-
-def _subject_keywords(intent: dict[str, Any]) -> set[str]:
-    """Return content-bearing subject terms, excluding generic task words."""
-    keywords: set[str] = set()
-    for group in _subject_keyword_groups(intent):
-        keywords.update(group)
+            keywords.add(token)
     return keywords
 
 
@@ -170,13 +155,9 @@ def evaluate_constraints(intent: dict[str, Any], candidate: dict[str, Any]) -> d
     matched = 0
     checked = 0
     task_keywords = _task_type_keywords(intent)
-    subject_groups = _subject_keyword_groups(intent)
     subject_keywords = _subject_keywords(intent)
     task_matches = task_keywords & evidence_tokens
-    group_hits = [group & subject_evidence_tokens for group in subject_groups]
-    subject_matches = (
-        set().union(*group_hits) if group_hits and all(group_hits) else set()
-    )
+    subject_matches = subject_keywords & subject_evidence_tokens
     if "human" in subject_keywords:
         subject_text = _subject_text(candidate)
         identity_matches = subject_keywords & _tokens(_subject_identity_text(candidate))
