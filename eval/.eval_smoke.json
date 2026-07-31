@@ -1,0 +1,89 @@
+{
+  "1": {
+    "query": "tìm dataset cho bài toán phát hiện con người",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "vietnamese",
+      "subject": "human detection",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "human detection dataset",
+        "object detection",
+        "image dataset"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "5528418",
+        "title": "OpenForensics: Multi-Face Forgery Detection And Segmentation In-The-Wild Dataset [V.1.0.0]",
+        "score": 3.6
+      },
+      {
+        "id": "8021099",
+        "title": "WiFi CSI-Based Long-Range Through-Wall Human Activity Recognition with the ESP32",
+        "score": 3.6
+      },
+      {
+        "id": "7262220",
+        "title": "Crowd simulation (CrowdSim2) for tracking and object detection",
+        "score": 3.6
+      },
+      {
+        "id": "10149996",
+        "title": "Development of Dataset for Detection of Various Events",
+        "score": 3.6
+      },
+      {
+        "id": "7534233",
+        "title": "ΑUTH-AGI OpenDR Humans in Fields Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "15073567",
+        "title": "Human Presence Detection LTE Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "19597219",
+        "title": "Synthetic LiDAR Dataset for Human Fall Detection",
+        "score": 3.6
+      },
+      {
+        "id": "21515906",
+        "title": "Dataset for: Real Time Human Detection by Unmanned Aerial Vehicles",
+        "score": 3.6
+      },
+      {
+        "id": "AbhayPancholi/Human-Activity-Detection-Dataset",
+        "title": "AbhayPancholi/Human-Activity-Detection-Dataset",
+        "score": 3.6
+      }
+    ]
+  }
+}

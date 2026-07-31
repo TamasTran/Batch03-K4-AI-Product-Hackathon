@@ -1,0 +1,170 @@
+{
+  "27": {
+    "query": "text classification dataset for sentiment",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [],
+    "pool_count": 56,
+    "first_turn_status": null,
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "sentiment",
+      "required_language": "any",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "sentiment analysis dataset",
+        "text classification sentiment",
+        "sentiment dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "10157504",
+        "title": "Datasets for Sentiment Analysis",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "google-research-datasets/poem_sentiment",
+        "title": "Gutenberg Poem Dataset",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7929635",
+        "title": "Large Movie Review Dataset",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "winvoker/turkish-sentiment-analysis-dataset",
+        "title": "Turkish Sentiment Dataset",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "MonoHime/ru_sentiment_dataset",
+        "title": "ru_sentiment_dataset",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7934164",
+        "title": "Produced Data of Naive Bayes Sentiment Classifier",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "community-datasets/urdu_sentiment_corpus",
+        "title": "Urdu Sentiment Corpus (USC)",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "3266053",
+        "title": "Webis Tripad Sentiment Corpus 2013 (Webis-Tripad-13-Sentiment)",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21146055",
+        "title": "A Dual-Annotated YouTube Comment Corpus on Precision Fermentation Technology (2019–2024)",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17638708",
+        "title": "Multi-domain data set of reviews for sentiment classification",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14919674",
+        "title": "Sentiment Analysis of COVID-19 Scientific Publication Dissemination on Social Media X: A Dataset Analyzed with ChatGPT 3.5 and Gemini 1.5 Flash",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20304413",
+        "title": "A Reproducible Indonesian NLP Pipeline for Multiclass  Sentiment Classification of Hospitality Reviews",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "4335594",
+        "title": "MAVIS Twitter dataset: A collection of tweets and sentiment analysis in Spanish about vaccines and diseases during the period 2015-2018",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "tanaos/synthetic-sentiment-analysis-dataset-v1",
+        "title": "tanaos-sentiment-analysis-dataset-v1 Training Dataset",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "Sp1786/multiclass-sentiment-analysis-dataset",
+        "title": "multiclass-sentiment-analysis-dataset",
+        "score": 3.6,
+        "constraint_status": "unknown",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  }
+}

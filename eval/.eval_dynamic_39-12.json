@@ -1,0 +1,1233 @@
+{
+  "39": {
+    "query": "semantic segmentation dataset for roads",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "OpenML · “semantic segmentation dataset”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/semantic%20segmentation%20dataset/limit/12",
+      "OpenML · “roads”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/roads/limit/12",
+      "OpenML · “image data”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/image%20data/limit/12",
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "semantic segmentation",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "roads",
+      "required_language": "any",
+      "required_labels": [
+        "road",
+        "sidewalk",
+        "vehicle",
+        "pedestrian"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "semantic segmentation dataset",
+        "roads",
+        "image data"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "vijpandaturtle/roadscapes",
+        "title": "vijpandaturtle/roadscapes",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "40": {
+    "query": "phân đoạn ngữ nghĩa mặt đường",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "semantic segmentation",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "vietnamese",
+      "subject": "road surfaces",
+      "required_language": "any",
+      "required_labels": [
+        "road",
+        "not road"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "image data with road surfaces"
+      ],
+      "search_keywords_en": [
+        "semantic segmentation road",
+        "image segmentation road surfaces"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.8,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "19570111",
+        "title": "Dataset and Scenario-based Evaluation Framework",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8188390",
+        "title": "NPM3D dataset with instance label. Dataset used in paper \"A Review of Panoptic Segmentation for Mobile Mapping Point Clouds\"",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17952339",
+        "title": "UAV Road Defect Segmentation Dataset (RDD2022-derived)",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21370736",
+        "title": "IRD-Dataset",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7839327",
+        "title": "The datasets of line structured light scanning image of aggregate surface.",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20153866",
+        "title": "Trained deep learning models for street-level land surface temperature analysis using Google Street View imagery",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20040434",
+        "title": "Asphalt Pavement Crack Segmentation Dataset for Mobile Road Distress Assessment",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21672216",
+        "title": "Annotated dataset of rural roads in Poland",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "5513639",
+        "title": "Historical City Maps Semantic Segmentation Dataset",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14906179",
+        "title": "SemanticTHAB: A High Resolution LiDAR Dataset",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8416670",
+        "title": "WhiteRoadLines: Dataset of 27,025 images (256x256 pixeles at 0.15 m/ pixel) containing representative road lines and markings labelled for multi-class semantic segmentation",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "10602515",
+        "title": "Road surface aerial photo training dataset",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "Dinusharg/semantic_segmentation_footpath_grass_road_water_v1",
+        "title": "Dinusharg/semantic_segmentation_footpath_grass_road_water_v1",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "41": {
+    "query": "road semantic segmentation training dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "semantic segmentation",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "road scenes",
+      "required_language": "any",
+      "required_labels": [
+        "road",
+        "vehicles",
+        "pedestrians",
+        "background"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "image data with labeled segments"
+      ],
+      "search_keywords_en": [
+        "road semantic segmentation dataset",
+        "image segmentation training data"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "14906179",
+        "title": "SemanticTHAB: A High Resolution LiDAR Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8416670",
+        "title": "WhiteRoadLines: Dataset of 27,025 images (256x256 pixeles at 0.15 m/ pixel) containing representative road lines and markings labelled for multi-class semantic segmentation",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "10602515",
+        "title": "Road surface aerial photo training dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "19570111",
+        "title": "Dataset and Scenario-based Evaluation Framework",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17952339",
+        "title": "UAV Road Defect Segmentation Dataset (RDD2022-derived)",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21370736",
+        "title": "IRD-Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7839327",
+        "title": "The datasets of line structured light scanning image of aggregate surface.",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20040434",
+        "title": "Asphalt Pavement Crack Segmentation Dataset for Mobile Road Distress Assessment",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "42": {
+    "query": "street scene semantic segmentation data",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "semantic segmentation",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "street scenes",
+      "required_language": "any",
+      "required_labels": [
+        "road",
+        "building",
+        "vehicle",
+        "pedestrian",
+        "sky",
+        "tree"
+      ],
+      "preferred_domain": "specific",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "image data with labeled segments for street scenes"
+      ],
+      "search_keywords_en": [
+        "street scene segmentation dataset",
+        "semantic segmentation images",
+        "labeled street images"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "10008184",
+        "title": "The Green View Index of Tartu street network",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "18781136",
+        "title": "Labeled Street View Images for Detecting Flammable Scaffolding Systems in Urban Environments",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "43": {
+    "query": "driving road segmentation benchmark",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "semantic segmentation",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "road segmentation",
+      "required_language": "any",
+      "required_labels": [
+        "road",
+        "non-road"
+      ],
+      "preferred_domain": "specific",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "benchmark dataset for driving road segmentation"
+      ],
+      "search_keywords_en": [
+        "driving road segmentation",
+        "semantic segmentation benchmark",
+        "road segmentation dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "19570111",
+        "title": "Dataset and Scenario-based Evaluation Framework",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8188390",
+        "title": "NPM3D dataset with instance label. Dataset used in paper \"A Review of Panoptic Segmentation for Mobile Mapping Point Clouds\"",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17952339",
+        "title": "UAV Road Defect Segmentation Dataset (RDD2022-derived)",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21370736",
+        "title": "IRD-Dataset",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7839327",
+        "title": "The datasets of line structured light scanning image of aggregate surface.",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20040434",
+        "title": "Asphalt Pavement Crack Segmentation Dataset for Mobile Road Distress Assessment",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21672216",
+        "title": "Annotated dataset of rural roads in Poland",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14856338",
+        "title": "Finnish Winter Driving Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "yaraa11/enhanced-road-segmentation-dataset",
+        "title": "yaraa11/enhanced-road-segmentation-dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14906179",
+        "title": "SemanticTHAB: A High Resolution LiDAR Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8416670",
+        "title": "WhiteRoadLines: Dataset of 27,025 images (256x256 pixeles at 0.15 m/ pixel) containing representative road lines and markings labelled for multi-class semantic segmentation",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17194814",
+        "title": "RoadDefects-ISeg: A Dataset for Instance Segmentation of Road Surface Defects",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "10602515",
+        "title": "Road surface aerial photo training dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "15474412",
+        "title": "RoadMark-binary: 29,405 RGB aerial tiles with ground truth masks labeled with horizontal road line marking information",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "44": {
+    "query": "lane and road semantic segmentation dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "semantic segmentation",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "lanes and roads",
+      "required_language": "any",
+      "required_labels": [
+        "lane",
+        "road"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "lane segmentation dataset",
+        "road segmentation dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "yaraa11/enhanced-road-segmentation-dataset",
+        "title": "yaraa11/enhanced-road-segmentation-dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8416670",
+        "title": "WhiteRoadLines: Dataset of 27,025 images (256x256 pixeles at 0.15 m/ pixel) containing representative road lines and markings labelled for multi-class semantic segmentation",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17194814",
+        "title": "RoadDefects-ISeg: A Dataset for Instance Segmentation of Road Surface Defects",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "19570111",
+        "title": "Dataset and Scenario-based Evaluation Framework",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17952339",
+        "title": "UAV Road Defect Segmentation Dataset (RDD2022-derived)",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21370736",
+        "title": "IRD-Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7839327",
+        "title": "The datasets of line structured light scanning image of aggregate surface.",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20040434",
+        "title": "Asphalt Pavement Crack Segmentation Dataset for Mobile Road Distress Assessment",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21672216",
+        "title": "Annotated dataset of rural roads in Poland",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14906179",
+        "title": "SemanticTHAB: A High Resolution LiDAR Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "15476771",
+        "title": "Curated Multi-Institutional Benchmark Dataset for Validating AI Models for Volumetric Pancreas Segmentation on Contrast-Enhanced CTs-Set2",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "10602515",
+        "title": "Road surface aerial photo training dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "15474412",
+        "title": "RoadMark-binary: 29,405 RGB aerial tiles with ground truth masks labeled with horizontal road line marking information",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "45": {
+    "query": "urban road image segmentation data",
+    "passed": false,
+    "failures": [
+      "OR-matching regression: task-only synthetic candidate became matched",
+      "OR-matching regression: task-only synthetic candidate reports constraint_subject_matched=True"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image segmentation",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "urban roads",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "urban road segmentation",
+        "image segmentation dataset",
+        "road image data"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "21370736",
+        "title": "IRD-Dataset",
+        "score": 4.5,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8366970",
+        "title": "UAVBillboards dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "10115905",
+        "title": "An urban traffic dataset composed of visible images and their semantic segmentation generated by the CARLA simulator",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17154852",
+        "title": "Indian Footpath Damage Segmentation Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21291309",
+        "title": "Synthetic Urban Manhole Cover Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "6811234",
+        "title": "Aerial Segmentation Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14906179",
+        "title": "SemanticTHAB: A High Resolution LiDAR Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21672216",
+        "title": "Annotated dataset of rural roads in Poland",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "46": {
+    "query": "autonomous driving road segmentation dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "semantic segmentation",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "road segmentation",
+      "required_language": "any",
+      "required_labels": [
+        "road",
+        "non-road"
+      ],
+      "preferred_domain": "specific",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "image resolution must be high",
+        "annotations must be pixel-wise"
+      ],
+      "search_keywords_en": [
+        "autonomous driving dataset",
+        "road segmentation dataset",
+        "semantic segmentation images"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": true,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "19570111",
+        "title": "Dataset and Scenario-based Evaluation Framework",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17952339",
+        "title": "UAV Road Defect Segmentation Dataset (RDD2022-derived)",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21370736",
+        "title": "IRD-Dataset",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7839327",
+        "title": "The datasets of line structured light scanning image of aggregate surface.",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20040434",
+        "title": "Asphalt Pavement Crack Segmentation Dataset for Mobile Road Distress Assessment",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21672216",
+        "title": "Annotated dataset of rural roads in Poland",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "jongwonryu/MIST-autonomous-driving-dataset",
+        "title": "jongwonryu/MIST-autonomous-driving-dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14906179",
+        "title": "SemanticTHAB: A High Resolution LiDAR Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "yaraa11/enhanced-road-segmentation-dataset",
+        "title": "yaraa11/enhanced-road-segmentation-dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8416670",
+        "title": "WhiteRoadLines: Dataset of 27,025 images (256x256 pixeles at 0.15 m/ pixel) containing representative road lines and markings labelled for multi-class semantic segmentation",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17194814",
+        "title": "RoadDefects-ISeg: A Dataset for Instance Segmentation of Road Surface Defects",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "10602515",
+        "title": "Road surface aerial photo training dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "15474412",
+        "title": "RoadMark-binary: 29,405 RGB aerial tiles with ground truth masks labeled with horizontal road line marking information",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "47": {
+    "query": "dataset segment đường phố cho xe tự lái",
+    "passed": false,
+    "failures": [
+      "no verified title/id contains a known-good pattern: ['road', 'street', 'driving', 'lane', 'cityscape']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "vietnamese",
+      "subject": "street scenes",
+      "required_language": "any",
+      "required_labels": [
+        "vehicles",
+        "pedestrians",
+        "traffic signs",
+        "road markings"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "annotated street scenes for autonomous driving"
+      ],
+      "search_keywords_en": [
+        "street segmentation dataset",
+        "autonomous driving",
+        "image segmentation"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": true,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "48": {
+    "query": "road surface semantic segmentation images",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "semantic segmentation",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "road surfaces",
+      "required_language": "any",
+      "required_labels": [
+        "road",
+        "non-road"
+      ],
+      "preferred_domain": "specific",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "images of road surfaces for segmentation"
+      ],
+      "search_keywords_en": [
+        "road surface segmentation images",
+        "semantic segmentation road images"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "21370736",
+        "title": "IRD-Dataset",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7839327",
+        "title": "The datasets of line structured light scanning image of aggregate surface.",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20040434",
+        "title": "Asphalt Pavement Crack Segmentation Dataset for Mobile Road Distress Assessment",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21672216",
+        "title": "Annotated dataset of rural roads in Poland",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "10115905",
+        "title": "An urban traffic dataset composed of visible images and their semantic segmentation generated by the CARLA simulator",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "6866486",
+        "title": "A Dataset of Synthetic Images of Outdoor Scenes Taken from Sidewalks, for Temporal Semantic Segmentation Applications",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8416670",
+        "title": "WhiteRoadLines: Dataset of 27,025 images (256x256 pixeles at 0.15 m/ pixel) containing representative road lines and markings labelled for multi-class semantic segmentation",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17194814",
+        "title": "RoadDefects-ISeg: A Dataset for Instance Segmentation of Road Surface Defects",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "15474412",
+        "title": "RoadMark-binary: 29,405 RGB aerial tiles with ground truth masks labeled with horizontal road line marking information",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "19570111",
+        "title": "Dataset and Scenario-based Evaluation Framework",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17952339",
+        "title": "UAV Road Defect Segmentation Dataset (RDD2022-derived)",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "49": {
+    "query": "city street segmentation computer vision dataset",
+    "passed": false,
+    "failures": [
+      "KeyError: 'label_overlap'"
+    ]
+  },
+  "50": {
+    "query": "pixel-wise road scene classification dataset",
+    "passed": false,
+    "failures": [
+      "no verified title/id contains a known-good pattern: ['road', 'street', 'driving', 'lane', 'cityscape']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "semantic segmentation",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "road scenes",
+      "required_language": "english",
+      "required_labels": [
+        "road",
+        "building",
+        "vehicle",
+        "pedestrian",
+        "sky",
+        "other"
+      ],
+      "preferred_domain": "specific",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "pixel-wise annotations"
+      ],
+      "search_keywords_en": [
+        "road scene classification",
+        "semantic segmentation dataset",
+        "pixel-wise labels"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.9,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  }
+}

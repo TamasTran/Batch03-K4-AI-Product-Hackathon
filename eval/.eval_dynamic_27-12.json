@@ -1,0 +1,600 @@
+{
+  "27": {
+    "query": "text classification dataset for sentiment",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'product reviews', expected one of ['sentiment', 'emotion', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "OpenML · “sentiment analysis dataset”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/sentiment%20analysis%20dataset/limit/12",
+      "OpenML · “text classification sentiment”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/text%20classification%20sentiment/limit/12",
+      "OpenML · “product reviews sentiment”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/product%20reviews%20sentiment/limit/12",
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "product reviews",
+      "required_language": "english",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "sentiment analysis dataset",
+        "text classification sentiment",
+        "product reviews sentiment"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "3266053",
+        "title": "Webis Tripad Sentiment Corpus 2013 (Webis-Tripad-13-Sentiment)",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "28": {
+    "query": "phân loại văn bản theo cảm xúc",
+    "passed": false,
+    "failures": [
+      "KeyError: 'label_overlap'"
+    ]
+  },
+  "29": {
+    "query": "sentiment text classification training data",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'general', expected one of ['sentiment', 'emotion', 'opinion', 'polarity']",
+      "no verified title/id contains a known-good pattern: ['sentiment', 'emotion', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "general",
+      "required_language": "english",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "sentiment analysis dataset",
+        "text classification training data"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "30": {
+    "query": "opinion polarity text classifier dataset",
+    "passed": false,
+    "failures": [
+      "no verified title/id contains a known-good pattern: ['opinion', 'polarity', 'sentiment', 'emotion']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "opinion polarity",
+      "required_language": "english",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "opinion polarity dataset",
+        "sentiment analysis dataset",
+        "text classification dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "31": {
+    "query": "emotion classification dataset for text",
+    "passed": false,
+    "failures": [
+      "no verified title/id contains a known-good pattern: ['emotion', 'sentiment', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "emotion classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "emotions",
+      "required_language": "english",
+      "required_labels": [
+        "joy",
+        "anger",
+        "sadness",
+        "fear",
+        "surprise",
+        "disgust"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "emotion classification dataset",
+        "text emotion analysis",
+        "text dataset for emotions"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.9,
+        "required_labels": 0.9
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "32": {
+    "query": "customer review sentiment text classification",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "product reviews",
+      "required_language": "english",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "customer review sentiment",
+        "text classification",
+        "product reviews",
+        "sentiment analysis"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "m-ric/amazon_product_reviews_datafiniti",
+        "title": "m-ric/amazon_product_reviews_datafiniti",
+        "score": 4.2,
+        "constraint_status": "unknown",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "6657410",
+        "title": "Amazon product reviews (mock dataset)",
+        "score": 3.6,
+        "constraint_status": "unknown",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "33": {
+    "query": "social media sentiment classification corpus",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'social media posts', expected one of ['sentiment', 'emotion', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "social media",
+      "modality": "text",
+      "language": "english",
+      "subject": "social media posts",
+      "required_language": "english",
+      "required_labels": [
+        "positive",
+        "negative",
+        "neutral"
+      ],
+      "preferred_domain": "specific",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "social media sentiment analysis",
+        "sentiment classification dataset",
+        "social media posts labels"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "jason1966/abdullah0a_social-media-sentiment-analysis-dataset",
+        "title": "jason1966/abdullah0a_social-media-sentiment-analysis-dataset",
+        "score": 4.7,
+        "constraint_status": "unknown",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "34": {
+    "query": "binary sentiment text dataset positive negative",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'general', expected one of ['sentiment', 'polarity', 'opinion', 'emotion']",
+      "no verified title/id contains a known-good pattern: ['sentiment', 'polarity', 'opinion', 'emotion']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "general",
+      "required_language": "english",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "binary sentiment dataset",
+        "text classification",
+        "positive negative reviews"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "35": {
+    "query": "dataset phân tích cảm xúc bình luận",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'comments', expected one of ['sentiment', 'emotion', 'opinion', 'review']",
+      "no verified title/id contains a known-good pattern: ['sentiment', 'emotion', 'opinion', 'review']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "vietnamese",
+      "subject": "comments",
+      "required_language": "vietnamese",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "sentiment analysis dataset",
+        "comments sentiment",
+        "Vietnamese sentiment dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "36": {
+    "query": "multilingual sentiment text classification",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'general', expected one of ['sentiment', 'emotion', 'opinion', 'polarity']",
+      "no verified title/id contains a known-good pattern: ['sentiment', 'emotion', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "any",
+      "subject": "general",
+      "required_language": "multilingual",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "multilingual sentiment analysis",
+        "text classification",
+        "sentiment classification dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "37": {
+    "query": "fine grained emotion sentiment text dataset",
+    "passed": false,
+    "failures": [
+      "no verified title/id contains a known-good pattern: ['emotion', 'sentiment', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "emotions",
+      "required_language": "english",
+      "required_labels": [
+        "happy",
+        "sad",
+        "angry",
+        "surprised",
+        "disgusted",
+        "fearful"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "fine-grained emotion labels"
+      ],
+      "search_keywords_en": [
+        "fine grained emotion sentiment dataset",
+        "text emotion classification",
+        "sentiment analysis dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.9,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "38": {
+    "query": "Vietnamese sentiment text classification dataset",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'general', expected one of ['sentiment', 'emotion', 'opinion', 'polarity']",
+      "no verified title/id contains a known-good pattern: ['sentiment', 'emotion', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "vietnamese",
+      "subject": "general",
+      "required_language": "vietnamese",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "Vietnamese sentiment analysis",
+        "text classification dataset",
+        "sentiment classification Vietnamese"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  }
+}

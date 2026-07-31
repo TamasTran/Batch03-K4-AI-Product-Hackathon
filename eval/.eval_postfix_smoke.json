@@ -1,0 +1,97 @@
+{
+  "1": {
+    "query": "tìm dataset cho bài toán phát hiện con người",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [],
+    "pool_count": 48,
+    "first_turn_status": null,
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "vietnamese",
+      "subject": "humans",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "human detection dataset",
+        "object detection humans",
+        "image dataset for humans"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [
+        "required_labels"
+      ],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "7534233",
+        "title": "ΑUTH-AGI OpenDR Humans in Fields Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "16537441",
+        "title": "Augmented and Diverse Herding Dataset for Autonomous Shepherd Robots",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "17880565",
+        "title": "ShortRangeRadar-60-SynReal",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "5022240",
+        "title": "Data from: Camouflage, detection and identification of moving targets",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14056210",
+        "title": "A pipeline for estimating human attention toward objects with on-board cameras on the iCub humanoid robot",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "10991602",
+        "title": "ForClearingDet - Image dataset of annotated RGB images for object detection in forestry clearing operations",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  }
+}

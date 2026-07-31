@@ -1,0 +1,955 @@
+{
+  "14": {
+    "query": "image classification dataset for text images",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "text images",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "image classification dataset",
+        "text images",
+        "OCR dataset"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "anirudh1112/corrected-tobacco-dataset-with-ocr",
+        "title": "anirudh1112/corrected-tobacco-dataset-with-ocr",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "10724993",
+        "title": "Deepdive Dataset (ROV multiclass image classification)",
+        "score": 3.6,
+        "constraint_status": "needs_review",
+        "needs_review": true,
+        "review_warning": "⚠️ Core keyword 'text' không tìm thấy trong metadata — cần tự kiểm tra thêm trước khi dùng."
+      },
+      {
+        "id": "Voxel51/scanned-images-dataset-for-ocr-and-vlm-finetuning",
+        "title": "Voxel51/scanned-images-dataset-for-ocr-and-vlm-finetuning",
+        "score": 3.6,
+        "constraint_status": "needs_review",
+        "needs_review": true,
+        "review_warning": "⚠️ Core keyword 'text' không tìm thấy trong metadata — cần tự kiểm tra thêm trước khi dùng."
+      },
+      {
+        "id": "18767594",
+        "title": "A dataset for 19th-century French land registry pages classification",
+        "score": 3.6,
+        "constraint_status": "needs_review",
+        "needs_review": true,
+        "review_warning": "⚠️ Core keyword 'text' không tìm thấy trong metadata — cần tự kiểm tra thêm trước khi dùng."
+      },
+      {
+        "id": "recruit-jp/japanese-image-classification-evaluation-dataset",
+        "title": "recruit-jp/japanese-image-classification-evaluation-dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "18790631",
+        "title": "BZK_LE",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "Mobiusi/Smart-Speaker-Image-Classification-Dataset",
+        "title": "Mobiusi/Smart-Speaker-Image-Classification-Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "15": {
+    "query": "phân loại ảnh có chứa văn bản",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "any",
+      "subject": "text in images",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "image classification",
+        "text detection",
+        "text in images"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.83,
+      "field_confidence": {
+        "task_type": 0.8,
+        "modality": 0.9,
+        "domain": 0.8,
+        "required_language": 0.5,
+        "required_labels": 0.5
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "17493913",
+        "title": "Rodent Behavior Classification Dataset",
+        "score": 3.6,
+        "constraint_status": "needs_review",
+        "needs_review": true,
+        "review_warning": "⚠️ Core keyword 'text' không tìm thấy trong metadata — cần tự kiểm tra thêm trước khi dùng."
+      },
+      {
+        "id": "stevelohwc/pokemon_card_image_for_authenticity_classification",
+        "title": "stevelohwc/pokemon_card_image_for_authenticity_classification",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "12207476",
+        "title": "Jacobaea vulgaris and meadow image classification dataset (binary)",
+        "score": 3.6,
+        "constraint_status": "needs_review",
+        "needs_review": true,
+        "review_warning": "⚠️ Core keyword 'text' không tìm thấy trong metadata — cần tự kiểm tra thêm trước khi dùng."
+      },
+      {
+        "id": "13846152",
+        "title": "MultiSocial",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "dmedhi/garbage-image-classification-detection",
+        "title": "dmedhi/garbage-image-classification-detection",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7197318",
+        "title": "The repartitioned birds400 dataset",
+        "score": 3.6,
+        "constraint_status": "needs_review",
+        "needs_review": true,
+        "review_warning": "⚠️ Core keyword 'text' không tìm thấy trong metadata — cần tự kiểm tra thêm trước khi dùng."
+      },
+      {
+        "id": "srikanthgali/ai-text-detection-pile-cleaned",
+        "title": "srikanthgali/ai-text-detection-pile-cleaned",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14625277",
+        "title": "Image dataset for: CNN Based Image Classification of Malicious UAVs",
+        "score": 3.6,
+        "constraint_status": "needs_review",
+        "needs_review": true,
+        "review_warning": "⚠️ Core keyword 'text' không tìm thấy trong metadata — cần tự kiểm tra thêm trước khi dùng."
+      },
+      {
+        "id": "21417053",
+        "title": "MedHerbs: An Image Dataset of Dried Bangladeshi Medicinal Herbs",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "16": {
+    "query": "text image classification training data",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'general', expected one of ['text', 'document', 'ocr', 'word']",
+      "no verified title/id contains a known-good pattern: ['text', 'document', 'ocr', 'word', 'handwriting']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "any",
+      "subject": "general",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "image classification dataset",
+        "training data for image classification"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [
+        "required_labels"
+      ],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "17": {
+    "query": "document text image classifier dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "any",
+      "subject": "documents",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "document image classification dataset",
+        "image classifier for documents"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.5,
+        "required_labels": 0.5
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "7849576",
+        "title": "ICDAR 2021 Historical Document Classification Test Dataset for Task 3 - Location",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "18": {
+    "query": "OCR text image classification dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "any",
+      "subject": "text recognition",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "OCR dataset",
+        "text image classification",
+        "image classification",
+        "text recognition"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "anirudh1112/corrected-tobacco-dataset-with-ocr",
+        "title": "anirudh1112/corrected-tobacco-dataset-with-ocr",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "2537998",
+        "title": "Recognising innovative companies by using a diversified stacked generalisation method for website classification – the raw results",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "huggingface/image-classification-test-sample",
+        "title": "huggingface/image-classification-test-sample",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7394851",
+        "title": "MN-DS: A Multilabeled News Dataset for News Articles Hierarchical Classification",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "stevelohwc/pokemon_card_image_for_authenticity_classification",
+        "title": "stevelohwc/pokemon_card_image_for_authenticity_classification",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7338792",
+        "title": "GLAMI-1M: A Multilingual Image-Text Fashion Dataset - 800px",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8306439",
+        "title": "Multimodal Toxic Memes Detection Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "12773815",
+        "title": "DBpedia abstracts for text classification",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20347453",
+        "title": "Research data for: An Evolutionary Hyper-Heuristic Approach for AutoML in Text Classification with Weighted-Sum Fitness Optimization",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "19": {
+    "query": "handwritten text image classification data",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "handwritten text",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "specific",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "handwritten text classification",
+        "image dataset",
+        "text recognition"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [
+        "required_labels"
+      ],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "Shanmuk4622/ai-image-detection-dataset",
+        "title": "Shanmuk4622/ai-image-detection-dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "19474501",
+        "title": "Bangla Hand Written Character and Word Recognition Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "Rajarshi-Roy-research/Defactify_Image_Dataset",
+        "title": "Rajarshi-Roy-research/Defactify_Image_Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "20": {
+    "query": "scene text image categorization dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "scene text",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "scene text classification",
+        "image categorization dataset"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "7338792",
+        "title": "GLAMI-1M: A Multilingual Image-Text Fashion Dataset - 800px",
+        "score": 4.2,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7326406",
+        "title": "GLAMI-1M: A Multilingual Image-Text Fashion Dataset",
+        "score": 4.2,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "21": {
+    "query": "dataset phân loại ảnh chữ viết",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "any",
+      "subject": "handwritten text",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "handwritten text classification",
+        "image dataset",
+        "text recognition"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "1297399",
+        "title": "HTR Dataset ICFHR 2016",
+        "score": 4.65,
+        "constraint_status": "unknown",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "tishtakalita/Multimodal-Dataset-Image_Text_Table_TimeSeries-for-Financial-Time-Series-Forecasting",
+        "title": "tishtakalita/Multimodal-Dataset-Image_Text_Table_TimeSeries-for-Financial-Time-Series-Forecasting",
+        "score": 4.65,
+        "constraint_status": "unknown",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "3262372",
+        "title": "ICDAR 2019 Competition on Image Retrieval for Historical Handwritten Documents [HisIR19] Dataset",
+        "score": 4.65,
+        "constraint_status": "unknown",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "19474501",
+        "title": "Bangla Hand Written Character and Word Recognition Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "Shanmuk4622/ai-image-detection-dataset",
+        "title": "Shanmuk4622/ai-image-detection-dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "Rajarshi-Roy-research/Defactify_Image_Dataset",
+        "title": "Rajarshi-Roy-research/Defactify_Image_Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "22": {
+    "query": "classify document images by text type",
+    "passed": false,
+    "failures": [
+      "no verified title/id contains a known-good pattern: ['document', 'text', 'ocr', 'word']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "document classification",
+      "domain": "NLP",
+      "modality": "image",
+      "language": "any",
+      "subject": "text types",
+      "required_language": "any",
+      "required_labels": [
+        "type1",
+        "type2",
+        "type3"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "classify by text type"
+      ],
+      "search_keywords_en": [
+        "document classification",
+        "image text types",
+        "classify document images"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.87,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.8,
+        "required_language": 0.5,
+        "required_labels": 0.7
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "23": {
+    "query": "printed text image classification benchmark",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "printed text",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "printed text classification",
+        "image classification benchmark"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "7692961",
+        "title": "AuTexTification",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7846000",
+        "title": "AuTexTification test set",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "18847390",
+        "title": "SENSERO: Semantic Earth-observation and Natural-language Scene Explanation for Romania (2018)",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "12773815",
+        "title": "DBpedia abstracts for text classification",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "24": {
+    "query": "word image classification dataset",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'objects', expected one of ['word', 'text', 'document', 'ocr']",
+      "no verified title/id contains a known-good pattern: ['word', 'text', 'document', 'ocr', 'handwriting']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "OpenML · “image classification dataset”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/image%20classification%20dataset/limit/12",
+      "OpenML · “object recognition dataset”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/object%20recognition%20dataset/limit/12",
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "objects",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "image classification dataset",
+        "object recognition dataset"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "25": {
+    "query": "classify screenshots containing text",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'screenshots', expected one of ['text', 'document', 'ocr', 'word']",
+      "no verified title/id contains a known-good pattern: ['text', 'document', 'ocr', 'word', 'screenshot']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "text classification",
+      "domain": "NLP",
+      "modality": "image",
+      "language": "any",
+      "subject": "screenshots",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "text classification",
+        "image screenshots",
+        "text recognition"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.8,
+      "field_confidence": {
+        "task_type": 0.8,
+        "modality": 0.8,
+        "domain": 0.8,
+        "required_language": 0.5,
+        "required_labels": 0.5
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "26": {
+    "query": "image classification for document text recognition",
+    "passed": false,
+    "failures": [
+      "no verified title/id contains a known-good pattern: ['document', 'text', 'ocr', 'word', 'handwriting']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "document analysis",
+      "modality": "image",
+      "language": "english",
+      "subject": "text recognition",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "image classification",
+        "document text recognition"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.87,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.8,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "huggingface/image-classification-test-sample",
+        "title": "huggingface/image-classification-test-sample",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "stevelohwc/pokemon_card_image_for_authenticity_classification",
+        "title": "stevelohwc/pokemon_card_image_for_authenticity_classification",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "dmedhi/garbage-image-classification-detection",
+        "title": "dmedhi/garbage-image-classification-detection",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  }
+}
