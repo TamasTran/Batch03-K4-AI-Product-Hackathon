@@ -2,9 +2,14 @@ import os
 import unittest
 from unittest.mock import patch
 
+import requests
+
 from pipeline.llm import (
+    LLM_NETWORK_ATTEMPTS,
     LLM_TEMPERATURE,
+    _post_with_connection_retry,
     call_json,
+    describe_llm_error,
     get_llm_config,
     infer_provider,
     _gemini_text,
@@ -86,7 +91,44 @@ class LLMRouterTests(unittest.TestCase):
         kwargs = post.call_args.kwargs
         self.assertNotIn("params", kwargs)
         self.assertEqual(kwargs["headers"]["x-goog-api-key"], "secret-gemini")
-        self.assertNotIn("secret-gemini", post.call_args.args[0])
+        self.assertNotIn("secret-gemini", kwargs["url"])
+
+    @patch("pipeline.llm.time.sleep")
+    @patch("pipeline.llm.requests.post")
+    def test_transient_connection_error_is_retried(self, post, sleep):
+        response = object()
+        post.side_effect = [
+            requests.ConnectionError("temporarily blocked"),
+            response,
+        ]
+        result = _post_with_connection_retry(
+            url="https://api.example.test",
+            timeout=1,
+        )
+        self.assertIs(result, response)
+        self.assertEqual(post.call_count, 2)
+        sleep.assert_called_once()
+
+    @patch("pipeline.llm.time.sleep")
+    @patch("pipeline.llm.requests.post")
+    def test_connection_retry_stops_after_configured_attempts(self, post, sleep):
+        post.side_effect = requests.ConnectionError("blocked")
+        with self.assertRaises(requests.ConnectionError):
+            _post_with_connection_retry(
+                url="https://api.example.test",
+                timeout=1,
+            )
+        self.assertEqual(post.call_count, LLM_NETWORK_ATTEMPTS)
+        self.assertEqual(sleep.call_count, LLM_NETWORK_ATTEMPTS - 1)
+
+    def test_connection_error_description_hides_socket_details(self):
+        description = describe_llm_error(
+            requests.ConnectionError(
+                "HTTPSConnectionPool caused by WinError 10013"
+            )
+        )
+        self.assertIn("lỗi kết nối tạm thời", description)
+        self.assertNotIn("WinError", description)
 
 
 if __name__ == "__main__":

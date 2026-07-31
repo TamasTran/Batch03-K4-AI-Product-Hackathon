@@ -68,6 +68,11 @@ class ApiTests(unittest.TestCase):
             ["scored_before_threshold"]["verified"][0]["id"],
             "owner/dataset",
         )
+        self.assertEqual(
+            response.json()["tool_events"][0]["result"]["diagnostics"]
+            ["scored_before_threshold"]["verified"][0]["id"],
+            "owner/dataset",
+        )
 
     def test_rejects_no_source(self):
         response = self.client.post(
@@ -207,6 +212,75 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(len(body["verified"]), 1)
         self.assertEqual(len(body["unverified"]), 1)
         self.assertEqual(body["tool_events"][0]["tool"], "analyze_task")
+
+
+    @patch("api.SearchAgent")
+    def test_partial_sources_are_respected_and_explicit_web_false_is_preserved(
+        self, agent_class
+    ):
+        agent_class.return_value.run.return_value = AgentRun(
+            status="answered",
+            intent={},
+            ranked=[],
+            guidance={},
+            parse_mode="test",
+            rank_mode="test",
+        )
+        response = self.client.post(
+            "/api/v1/search",
+            json={
+                "query": "Vietnamese sentiment dataset",
+                "client_version": "1.1.0",
+                "client_build_hash": "abc123",
+                "client_built_at": "2026-07-31T00:00:00Z",
+                "enabled_sources": ["Hugging Face", "OpenML"],
+                "web_fallback_enabled": False,
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            agent_class.call_args.kwargs["enabled_sources"],
+            ["Hugging Face", "OpenML"],
+        )
+        self.assertFalse(agent_class.call_args.kwargs["web_fallback_enabled"])
+
+    @patch("api.SearchAgent")
+    def test_web_only_search_does_not_silently_enable_registries(
+        self, agent_class
+    ):
+        agent_class.return_value.run.return_value = AgentRun(
+            status="answered",
+            intent={},
+            ranked=[],
+            guidance={},
+            parse_mode="test",
+            rank_mode="test",
+        )
+        response = self.client.post(
+            "/api/v1/search",
+            json={
+                "query": "Vietnamese sentiment dataset",
+                "enabled_sources": [],
+                "web_fallback_enabled": True,
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(agent_class.call_args.kwargs["enabled_sources"], [])
+
+    def test_cors_accepts_local_fallback_port(self):
+        response = self.client.options(
+            "/api/v1/search",
+            headers={
+                "Origin": "http://127.0.0.1:3001",
+                "Access-Control-Request-Method": "POST",
+                "Access-Control-Request-Headers": "content-type",
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            response.headers["access-control-allow-origin"],
+            "http://127.0.0.1:3001",
+        )
 
 
 if __name__ == "__main__":

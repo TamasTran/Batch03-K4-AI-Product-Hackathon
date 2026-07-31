@@ -1,0 +1,996 @@
+{
+  "39": {
+    "query": "speech detection audio dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "speech detection",
+      "domain": "audio processing",
+      "modality": "audio",
+      "language": "english",
+      "subject": "speech",
+      "required_language": "english",
+      "required_labels": [],
+      "preferred_domain": "specific",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "speech detection dataset",
+        "audio processing dataset"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.9,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "5727656",
+        "title": "Data for: Speech naturalness detection and language representation in the dog brain",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20628795",
+        "title": "The MRP Speech Corpus",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "40": {
+    "query": "Tìm dataset ảnh X-quang phổi để phân loại viêm phổi",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "medical",
+      "modality": "image",
+      "language": "vietnamese",
+      "subject": "pneumonia",
+      "required_language": "any",
+      "required_labels": [
+        "pneumonia",
+        "normal"
+      ],
+      "preferred_domain": "specific",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "medical images",
+        "X-ray"
+      ],
+      "search_keywords_en": [
+        "chest X-ray pneumonia classification",
+        "pneumonia detection dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": true,
+      "is_sensitive_domain": true,
+      "sensitive_reason": "Dữ liệu liên quan đến y tế",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.9
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "15542446",
+        "title": "\"ASCE Enhanced Lung X-ray Dataset for Normal, Viral, and Bacterial Pneumonia Classification\"",
+        "score": 4.4,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "41": {
+    "query": "tôi cần data để train model",
+    "passed": true,
+    "failures": [],
+    "status": "clarification_required",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "not_run",
+    "warnings": [],
+    "intent": {
+      "task_type": "machine learning",
+      "domain": "any",
+      "modality": "any",
+      "language": "any",
+      "subject": "other specific subject",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "data for training model",
+        "machine learning dataset"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.43,
+      "field_confidence": {
+        "task_type": 0.5,
+        "modality": 0.5,
+        "domain": 0.3,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [
+        "task_type",
+        "modality",
+        "domain"
+      ],
+      "needs_clarification": true,
+      "clarification_question": "Bạn muốn mô hình thực hiện tác vụ gì và xử lý loại dữ liệu nào?"
+    },
+    "verified": []
+  },
+  "42": {
+    "query": "vehicle object detection dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "vehicles",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "vehicle object detection dataset",
+        "car detection dataset",
+        "automobile detection data"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "8289874",
+        "title": "CDSet: Crosswalk DataSet for Zebra Crossing Detection",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "6323712",
+        "title": "HAGDAVS Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14908802",
+        "title": "Multi-Class Driver Behavior Image Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "3608079",
+        "title": "Brainport, Urban driving, VRU smartphone detection, camera detection",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "6560823",
+        "title": "Night and Day Instance Segmented Park (NDISPark) Dataset: a Collection of Images taken by Day and by Night for Vehicle Detection, Segmentation and Counting in Parking Areas",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8233484",
+        "title": "CyCAR Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "3608090",
+        "title": "Brainport, Urban driving, car rebalancing, VRU detection, rerouting",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "3608014",
+        "title": "Brainport, Highway pilot, car in manual mode, IMU detection",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "3608006",
+        "title": "Brainport, Highway pilot, car in manual mode, camera detection",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "3608097",
+        "title": "Brainport, Urban driving, fixed route, VRU detection",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14004601",
+        "title": "Autonomous Vehicles_VSIM Simulator_Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "3382945",
+        "title": "OtoMobile Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20323778",
+        "title": "SynthFlood-Car: Synthetic and Refined Dataset for Vehicle Flood-Level Detection (Dataset)",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8251916",
+        "title": "Car Position Detection (CPD)",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "11516995",
+        "title": "Dataset for the Julia code titled \"Image Similarity Detection using ORB & Julia : Leveraging Hamming Distance & Keypoint Optimization\"",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "43": {
+    "query": "tìm xe trong ảnh",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "vietnamese",
+      "subject": "vehicles",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "vehicle detection",
+        "car in image",
+        "object detection",
+        "image analysis"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "1217105",
+        "title": "Extended Malaysian Traffic Sign Dataset (EMTD)",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "6323712",
+        "title": "HAGDAVS Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7401615",
+        "title": "UAV Images of Road Vehicles",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "6560823",
+        "title": "Night and Day Instance Segmented Park (NDISPark) Dataset: a Collection of Images taken by Day and by Night for Vehicle Detection, Segmentation and Counting in Parking Areas",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "3967850",
+        "title": "EU License Plates Images",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7262220",
+        "title": "Crowd simulation (CrowdSim2) for tracking and object detection",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7276691",
+        "title": "Synthetic automotive LiDAR dataset with radial velocity additional feature - (x,y,z,v)",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14792742",
+        "title": "Vehicle Classification and Detection in Low Resolution Images",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8233484",
+        "title": "CyCAR Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "aufiifathin/opensource-video-vehicle-detection",
+        "title": "aufiifathin/opensource-video-vehicle-detection",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7727882",
+        "title": "Intersection Monitoring: A dataset for vehicle detection using an infrastructure camera including ground truth vehicle localization",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "shangzx/Hazardous-Materials-Vehicle-Illegal-Parking-Behavior-Detection-Dataset",
+        "title": "shangzx/Hazardous-Materials-Vehicle-Illegal-Parking-Behavior-Detection-Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "19209239",
+        "title": "REAL-TIME VEHICLE DETECTION AND TRACKING USING YOLOV5 AND DEEPSORT FOR INTELLIGENT TRANSPORTATION SYSTEMS",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20247785",
+        "title": "Raqabah: A Multi-Severity Car Accident Image Classification Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "8050870",
+        "title": "Evry_vehicle_counting_dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "44": {
+    "query": "dataset để localize road vehicles",
+    "passed": false,
+    "failures": [
+      "paraphrase intent mismatch for group vehicle_detection: got=('object detection', 'image', 'computer vision', 'road vehicles'), baseline=('object detection', 'image', 'computer vision', 'vehicles')"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "any",
+      "subject": "road vehicles",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "localize road vehicles",
+        "vehicle detection dataset",
+        "object detection road vehicles"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [
+        "required_labels"
+      ],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "8429208",
+        "title": "UAV-PDD2023: A benchmark dataset for pavement distress detection based on UAV images",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "wandering-tiger/Vehicle-Detection-in-haze-Dataset",
+        "title": "wandering-tiger/Vehicle-Detection-in-haze-Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "7053442",
+        "title": "Aerial Multi-Vehicle Detection Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "Mobiusi/Highway-Section-Vehicle-Rollover-Accident-Detection-Dataset",
+        "title": "Mobiusi/Highway-Section-Vehicle-Rollover-Accident-Detection-Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "1217105",
+        "title": "Extended Malaysian Traffic Sign Dataset (EMTD)",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "shangzx/Hazardous-Materials-Vehicle-Illegal-Parking-Behavior-Detection-Dataset",
+        "title": "shangzx/Hazardous-Materials-Vehicle-Illegal-Parking-Behavior-Detection-Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "11303535",
+        "title": "Thermal Camera in Infrastructure Dataset - TLID",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "3603272",
+        "title": "Livorno, Urban driving, Pedestrian detection",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "3608014",
+        "title": "Brainport, Highway pilot, car in manual mode, IMU detection",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "3608006",
+        "title": "Brainport, Highway pilot, car in manual mode, camera detection",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21644263",
+        "title": "Real World No-collision Multi-sensor and V2X Road User Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "21370736",
+        "title": "IRD-Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "19695753",
+        "title": "LEGAL STATUS AND CURRENT CONDITION OF DRIVERS' WORK AND REST SCHEDULES",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "18871460",
+        "title": "Urban Community Issues Object Detection Dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "20108586",
+        "title": "Hard-DSEC-DET",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "45": {
+    "query": "general image classification dataset",
+    "passed": false,
+    "failures": [
+      "candidate pool too small: 37 < 40"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "general",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "general image classification dataset",
+        "image classification data",
+        "image dataset for classification"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "14592001",
+        "title": "PCOSGen-train dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "14591782",
+        "title": "PCOSGen-test dataset",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      },
+      {
+        "id": "12207476",
+        "title": "Jacobaea vulgaris and meadow image classification dataset (binary)",
+        "score": 3.6,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "46": {
+    "query": "rare pediatric retinal vasculitis OCT segmentation dataset",
+    "passed": false,
+    "failures": [
+      "no verified title/id contains a known-good pattern: ['retinal', 'vasculitis', 'pediatric', 'oct']",
+      "candidate pool too large: 28 > 25"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image segmentation",
+      "domain": "medical",
+      "modality": "image",
+      "language": "english",
+      "subject": "pediatric retinal vasculitis",
+      "required_language": "english",
+      "required_labels": [],
+      "preferred_domain": "specific",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "pediatric retinal vasculitis OCT segmentation",
+        "medical image segmentation dataset"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": true,
+      "is_sensitive_domain": true,
+      "sensitive_reason": "Dữ liệu liên quan đến y tế và bệnh lý trẻ em.",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.9,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "47": {
+    "query": "tôi cần một dataset tốt",
+    "passed": false,
+    "failures": [
+      "intent task_type mismatch: got 'spam classification', expected 'classification'"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "spam classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "email",
+      "required_language": "english",
+      "required_labels": [
+        "spam",
+        "not spam"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "email spam classification",
+        "text dataset",
+        "spam detection"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "UniqueData/email-spam-classification",
+        "title": "UniqueData/email-spam-classification",
+        "score": 5.0,
+        "constraint_status": "matched",
+        "needs_review": false,
+        "review_warning": null
+      }
+    ]
+  },
+  "48": {
+    "query": "tĂ¬m dataset phĂ¢n loáº¡i áº£nh con ngÆ°á»i",
+    "passed": false,
+    "failures": [
+      "pipeline status=answered, expected=clarification_required, missing_fields=[]"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "image classification",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "vietnamese",
+      "subject": "human images",
+      "required_language": "any",
+      "required_labels": [
+        "person",
+        "not person"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "image classification",
+        "human detection",
+        "person classification"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.8,
+      "field_confidence": {
+        "task_type": 0.8,
+        "modality": 0.8,
+        "domain": 0.8,
+        "required_language": 0.0,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "49": {
+    "query": "Tìm speech emotion recognition dataset tiếng Việt",
+    "passed": false,
+    "failures": [
+      "no verified title/id contains a known-good pattern: ['speech', 'emotion', 'voice', 'vietnamese']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "speech emotion recognition",
+      "domain": "NLP",
+      "modality": "audio",
+      "language": "vietnamese",
+      "subject": "emotions",
+      "required_language": "vietnamese",
+      "required_labels": [
+        "happy",
+        "sad",
+        "angry",
+        "neutral"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "Vietnamese speech emotion recognition dataset",
+        "audio emotion classification",
+        "speech emotion dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "50": {
+    "query": "tabular credit card fraud classification with labels fraud and legitimate, at least 10000 samples",
+    "passed": false,
+    "failures": [
+      "no verified title/id contains a known-good pattern: ['fraud', 'credit', 'transaction']",
+      "constraint probe missing_required_labels: status='unknown', expected='mismatch'; notes=['Chưa thấy bằng chứng rõ về loại tác vụ classification.', 'Có bằng chứng về subject credit card fraud: card, credit, fraud.', 'Metadata nhắc tới label: fraud.', 'Đủ quy mô tối thiểu: 20000 mẫu.']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "warnings": [
+      "OpenML · “credit card fraud dataset”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/credit%20card%20fraud%20dataset/limit/12",
+      "OpenML · “classification”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/classification/limit/12",
+      "OpenML · “tabular data”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/tabular%20data/limit/12",
+      "Web fallback: Chưa cấu hình web search key. Dùng SERPAPI_API_KEY, BING_SEARCH_API_KEY, hoặc GOOGLE_CSE_API_KEY + GOOGLE_CSE_ID."
+    ],
+    "intent": {
+      "task_type": "classification",
+      "domain": "financial",
+      "modality": "tabular",
+      "language": "any",
+      "subject": "credit card fraud",
+      "required_language": "any",
+      "required_labels": [
+        "fraud",
+        "legitimate"
+      ],
+      "preferred_domain": "financial",
+      "minimum_samples": 10000,
+      "hard_constraints": [
+        "tabular data",
+        "at least 10000 samples"
+      ],
+      "search_keywords_en": [
+        "credit card fraud dataset",
+        "classification",
+        "tabular data"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": true,
+      "sensitive_reason": "Dữ liệu liên quan đến tài chính cá nhân.",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  }
+}

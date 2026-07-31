@@ -1,6 +1,7 @@
+import json
 import unittest
 from unittest.mock import patch
-from agent import SearchAgent, has_search_source
+from agent import SearchAgent, _redact_tool_error, has_search_source
 from pipeline.parse_task import apply_confidence_policy, parse_task, _heuristic
 from pipeline.rank_candidates import (
     RANK_BATCH_SIZE,
@@ -17,6 +18,8 @@ from pipeline.rank_candidates import (
 )
 from pipeline.fallback_suggestions import build_guidance
 from sources.huggingface import search_hf_datasets
+from sources.kaggle import search_kaggle_datasets
+from sources.paperswithcode import search_pwc_datasets
 from tools import verify_candidates
 from sources.web_fallback import search_web_fallback
 from pipeline.deduplicate import (
@@ -36,6 +39,68 @@ SAMPLE = {
 
 
 class PipelineTests(unittest.TestCase):
+    def test_provider_error_redacts_plain_and_url_encoded_credentials(self):
+        secret = "abc+/=secret"
+        error = RuntimeError(
+            "failed https://provider.test?q=x&api_key=abc%2B%2F%3Dsecret"
+        )
+        message = _redact_tool_error(
+            error,
+            {"serpapi_api_key": secret, "keyword": "safe"},
+        )
+        self.assertNotIn(secret, message)
+        self.assertNotIn("abc%2B%2F%3Dsecret", message)
+        self.assertIn("***", message)
+
+    @patch("sources.kaggle.requests.get")
+    def test_kaggle_candidates_include_rankable_title(self, get):
+        get.return_value.raise_for_status.return_value = None
+        get.return_value.json.return_value = [{
+            "ref": "owner/helmet-detection",
+            "title": "Construction Helmet Detection",
+            "subtitle": "Annotated construction images",
+            "url": "https://www.kaggle.com/datasets/owner/helmet-detection",
+            "tags": [],
+        }]
+        rows = search_kaggle_datasets(
+            "construction helmet",
+            username="owner",
+            key="secret",
+        )
+        self.assertEqual(rows[0]["title"], "Construction Helmet Detection")
+
+    def test_general_subject_is_not_treated_as_positive_subject_evidence(self):
+        intent = {
+            "task_type": "image classification",
+            "subject": "general",
+            "preferred_domain": "general",
+            "required_language": "any",
+            "required_labels": [],
+            "minimum_samples": None,
+        }
+        row = evaluate_constraints(
+            intent,
+            {
+                "id": "generic/general-image-classification",
+                "title": "General Image Classification Dataset",
+                "description": "A general benchmark for image classification.",
+                "tags": ["image", "classification"],
+                "source": "Synthetic",
+            },
+        )
+        self.assertEqual(row["constraint_subject_keywords"], [])
+        self.assertFalse(row["constraint_subject_matched"])
+
+    @patch("sources.paperswithcode.requests.get")
+    def test_retired_paperswithcode_api_has_clear_error(self, get):
+        get.return_value.raise_for_status.return_value = None
+        get.return_value.headers = {"content-type": "text/html; charset=utf-8"}
+        get.return_value.url = "https://huggingface.co/papers/trending"
+        with self.assertRaisesRegex(
+            RuntimeError, "Papers with Code dataset API không còn khả dụng"
+        ):
+            search_pwc_datasets("helmet dataset")
+
     def test_heuristic_human_detection_keeps_subject_and_can_search(self):
         with patch("pipeline.parse_task.get_client", return_value=None):
             intent, mode = parse_task("human object detection dataset")
@@ -45,6 +110,23 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(intent["subject"], "human")
         self.assertFalse(intent["needs_clarification"])
         self.assertTrue(any("human" in keyword for keyword in intent["search_keywords_en"]))
+
+    def test_heuristic_construction_helmet_keeps_specific_subject_and_keywords(self):
+        with patch("pipeline.parse_task.get_client", return_value=None):
+            intent, _ = parse_task(
+                "I need an image dataset for construction helmet object detection"
+            )
+        self.assertEqual(intent["subject"], "construction helmet")
+        self.assertEqual(intent["domain"], "computer vision")
+        self.assertTrue(
+            any("construction helmet" in kw for kw in intent["search_keywords_en"]),
+            f"Expected 'construction helmet' in at least one keyword: {intent['search_keywords_en']}",
+        )
+        self.assertTrue(
+            any("object detection" in kw and "construction helmet" in kw
+                for kw in intent["search_keywords_en"]),
+            f"Expected keyword combining 'object detection' and 'construction helmet': {intent['search_keywords_en']}",
+        )
 
     def test_heuristic_vietnamese_pedestrian_detection_can_search(self):
         with patch("pipeline.parse_task.get_client", return_value=None):
@@ -278,7 +360,7 @@ class PipelineTests(unittest.TestCase):
             "Tìm dataset tiếng Việt có nhãn để phân tích cảm xúc bình luận sản phẩm"
         )
         self.assertEqual(intent["required_language"], "vietnamese")
-        self.assertEqual(intent["subject"], "product reviews")
+        self.assertEqual(intent["subject"], "sentiment")
         self.assertIn("positive", intent["required_labels"])
         self.assertIn("vietnamese", intent["search_keywords_en"][0])
 
@@ -329,6 +411,34 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("1/2 candidates", "\n".join(logs.output))
         self.assertIn("verified=1, unverified=0", "\n".join(logs.output))
 
+    @patch("pipeline.rank_candidates.llm_label", return_value="test-model")
+    @patch("pipeline.rank_candidates._llm_rank")
+    @patch("pipeline.rank_candidates.get_client", return_value=object())
+    def test_rank_falls_back_entirely_when_llm_returns_both_lanes_empty(
+        self, _, llm_rank, __
+    ):
+        llm_rank.return_value = {"verified": [], "unverified": []}
+        intent = {
+            "search_keywords_en": ["vietnamese sentiment classification"],
+            "task_type": "sentiment classification",
+            "domain": "NLP",
+            "needs_labels": True,
+        }
+        ranked, mode, diagnostics = rank_candidates(
+            intent,
+            [SAMPLE],
+            include_diagnostics=True,
+        )
+        self.assertEqual([row["id"] for row in ranked], [SAMPLE["id"]])
+        self.assertIn("verified và unverified đều rỗng", mode)
+        self.assertEqual(diagnostics["llm_scored_count"], 0)
+        self.assertEqual(diagnostics["heuristic_fallback_count"], 1)
+        self.assertEqual(
+            diagnostics["scored_before_threshold"]["verified"][0]
+            ["scoring_source"],
+            "heuristic",
+        )
+
     @patch("pipeline.rank_candidates._llm_rank_batch")
     def test_llm_ranking_batches_and_merges_all_candidates(self, rank_batch):
         candidates = [
@@ -373,6 +483,55 @@ class PipelineTests(unittest.TestCase):
             [RANK_BATCH_SIZE, RANK_BATCH_SIZE, 1],
         )
         self.assertEqual(result["_batching"]["temperature"], 0)
+
+    @patch("pipeline.rank_candidates.call_text_with_metadata")
+    def test_llm_rank_batch_sends_verified_title_to_ranker(self, call):
+        call.return_value = (
+            json.dumps({
+                "verified": [{
+                    "id": SAMPLE["id"],
+                    "task_match": 4,
+                    "domain_fit": 4,
+                    "label_overlap": 3,
+                    "size_adequacy": 3,
+                    "access_type": "open",
+                    "reasoning": "Khớp.",
+                }],
+                "unverified": [],
+            }),
+            {},
+        )
+        _llm_rank_batch(
+            {"task_type": "sentiment", "subject": "sentiment"},
+            [{**SAMPLE, "title": "Vietnamese Sentiment Reviews"}],
+            [],
+        )
+        payload = json.loads(call.call_args.args[1])
+        self.assertEqual(
+            payload["verified_candidates"][0]["title"],
+            "Vietnamese Sentiment Reviews",
+        )
+
+    @patch("pipeline.rank_candidates.call_text_with_metadata")
+    def test_llm_rank_batch_drops_verified_row_with_incomplete_scores(self, call):
+        call.return_value = (
+            json.dumps({
+                "verified": [{
+                    "id": SAMPLE["id"],
+                    "task_match": 5,
+                    "domain_fit": 5,
+                    "reasoning": "Thiếu các trục điểm.",
+                }],
+                "unverified": [],
+            }),
+            {},
+        )
+        result = _llm_rank_batch(
+            {"task_type": "sentiment", "subject": "sentiment"},
+            [SAMPLE],
+            [],
+        )
+        self.assertEqual(result["verified"], [])
 
     @patch("pipeline.rank_candidates.call_text_with_metadata")
     def test_llm_rank_batch_raises_specific_truncation_error(self, call_text):
@@ -942,6 +1101,38 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(rows[0]["sample_count"], 1000)
         self.assertIn("positive", rows[0]["features_text"])
 
+    @patch("sources.enrich.requests.get")
+    def test_huggingface_enrichment_normalizes_scalar_card_fields(self, get):
+        get.return_value.raise_for_status.return_value = None
+        get.return_value.json.return_value = {
+            "id": "owner/data",
+            "tags": [],
+            "cardData": {
+                "language": "en",
+                "task_categories": "text-classification",
+            },
+        }
+        rows = enrich_candidates([{
+            **SAMPLE,
+            "id": "owner/data",
+            "title": "Data",
+        }])
+        self.assertIn("language:en", rows[0]["tags"])
+        self.assertIn("text-classification", rows[0]["tags"])
+        self.assertNotIn("language:e", rows[0]["tags"])
+
+    def test_enrichment_recovers_zenodo_title_from_search_metadata(self):
+        candidate = {
+            "id": "12345",
+            "url": "https://zenodo.org/records/12345",
+            "source": "Zenodo",
+            "raw_metadata": {
+                "metadata": {"title": "Construction Helmet Image Dataset"}
+            },
+        }
+        rows = enrich_candidates([candidate], max_candidates=1)
+        self.assertEqual(rows[0]["title"], "Construction Helmet Image Dataset")
+
     @patch("sources.web_fallback.requests.get")
     def test_web_fallback_is_hardcoded_unverified_and_snippet_only(self, get):
         get.return_value.raise_for_status.return_value = None
@@ -1044,7 +1235,9 @@ class PipelineTests(unittest.TestCase):
         }
         fake_tools = {
             "analyze_task": lambda text: (intent, "test"),
-            "search_registry": lambda **kwargs: [SAMPLE],
+            "search_registry": lambda **kwargs: [{
+                **SAMPLE, "title": "Vietnamese Sentiment Dataset",
+            }],
             "verify_candidates": verify_candidates,
             "prepare_candidates": lambda **kwargs: kwargs["candidates"],
             "enrich_candidates": lambda **kwargs: kwargs["candidates"],
@@ -1062,6 +1255,8 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(run.ranked[0]["id"], SAMPLE["id"])
         search_event = next(x for x in run.tool_events if x.tool == "search_registry")
         self.assertEqual(search_event.args["key"], "***")
+        self.assertEqual(search_event.args["keyword"], "vietnamese sentiment")
+        self.assertEqual(search_event.args["candidate_count"], 1)
         self.assertTrue(all(x.status == "success" for x in run.tool_events))
 
     def test_search_agent_excludes_definite_constraint_mismatch(self):
@@ -1072,10 +1267,16 @@ class PipelineTests(unittest.TestCase):
             "needs_labels": True,
             "is_narrow_domain": False,
         }
-        good = {**SAMPLE, "id": "owner/vi", "constraint_status": "matched"}
+        good = {
+            **SAMPLE,
+            "id": "owner/vi",
+            "title": "Vietnamese Sentiment Dataset",
+            "constraint_status": "matched",
+        }
         bad = {
             **SAMPLE,
             "id": "owner/en",
+            "title": "English Sentiment Dataset",
             "url": "https://example.test/en",
             "constraint_status": "mismatch",
         }

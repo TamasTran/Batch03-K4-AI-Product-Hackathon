@@ -1,0 +1,671 @@
+{
+  "27": {
+    "query": "text classification dataset for sentiment",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'product reviews', expected one of ['sentiment', 'emotion', 'opinion', 'polarity']",
+      "no verified title/id contains a known-good pattern: ['sentiment', 'emotion', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "product reviews",
+      "required_language": "english",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "sentiment analysis dataset",
+        "text classification",
+        "product reviews"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "28": {
+    "query": "phân loại văn bản theo cảm xúc",
+    "passed": false,
+    "failures": [
+      "OR-matching regression: task-only synthetic candidate reports constraint_subject_matched=True"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "vietnamese",
+      "subject": "text sentiment",
+      "required_language": "vietnamese",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "text sentiment classification",
+        "sentiment analysis dataset",
+        "vietnamese sentiment dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "14291010",
+        "title": "URDU Dataset for Multi-modal Sentiment Analysis",
+        "score": 4.85
+      },
+      {
+        "id": "4362505",
+        "title": "#IndonesiaHumanRightsSOS Twitter Hashtag Tweets Dataset",
+        "score": 4.85
+      },
+      {
+        "id": "15851546",
+        "title": "Dataset: A German Gold-Standard Dataset for Sentiment Analysis in Software Engineering",
+        "score": 4.7
+      },
+      {
+        "id": "19003617",
+        "title": "Gender, Sport, and Digital Debate: A Raw Dataset of 35,676 Tweets on Imane Khelif at the Paris 2024 Olympics",
+        "score": 4.7
+      },
+      {
+        "id": "18396304",
+        "title": "Comparative Study of Sentiment Analysis Models of ANTAM Shares Based on Platform X Reviews",
+        "score": 4.7
+      },
+      {
+        "id": "21146055",
+        "title": "A Dual-Annotated YouTube Comment Corpus on Precision Fermentation Technology (2019–2024)",
+        "score": 4.4
+      },
+      {
+        "id": "17638708",
+        "title": "Multi-domain data set of reviews for sentiment classification",
+        "score": 4.4
+      },
+      {
+        "id": "14919674",
+        "title": "Sentiment Analysis of COVID-19 Scientific Publication Dissemination on Social Media X: A Dataset Analyzed with ChatGPT 3.5 and Gemini 1.5 Flash",
+        "score": 4.4
+      },
+      {
+        "id": "20304413",
+        "title": "A Reproducible Indonesian NLP Pipeline for Multiclass  Sentiment Classification of Hospitality Reviews",
+        "score": 4.4
+      }
+    ]
+  },
+  "29": {
+    "query": "sentiment text classification training data",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'general', expected one of ['sentiment', 'emotion', 'opinion', 'polarity']",
+      "no verified title/id contains a known-good pattern: ['sentiment', 'emotion', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "general",
+      "required_language": "english",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "sentiment analysis dataset",
+        "text classification",
+        "training data"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "30": {
+    "query": "opinion polarity text classifier dataset",
+    "passed": false,
+    "failures": [
+      "no verified title/id contains a known-good pattern: ['opinion', 'polarity', 'sentiment', 'emotion']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "opinion polarity",
+      "required_language": "english",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "opinion polarity dataset",
+        "sentiment analysis dataset",
+        "text classification dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "31": {
+    "query": "emotion classification dataset for text",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "emotion classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "emotions",
+      "required_language": "english",
+      "required_labels": [
+        "joy",
+        "anger",
+        "sadness",
+        "fear",
+        "surprise",
+        "disgust"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "text data",
+        "labeled emotions"
+      ],
+      "search_keywords_en": [
+        "emotion classification dataset",
+        "text emotion dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.9,
+        "required_labels": 0.9
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "13119214",
+        "title": "Datasets for Crowd-based Requirements Engineering and aspect-based detection of learning-centered emotion from the text in Serbian language",
+        "score": 4.85
+      },
+      {
+        "id": "2537838",
+        "title": "Dataset for paper \"Sharing emotions at scale: The Vent dataset\"",
+        "score": 4.85
+      },
+      {
+        "id": "13938754",
+        "title": "Peripheral physiological signals and subjectively felt intensity during an emotion recognition experiment",
+        "score": 4.0
+      }
+    ]
+  },
+  "32": {
+    "query": "customer review sentiment text classification",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "product reviews",
+      "required_language": "english",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "customer review sentiment",
+        "text classification",
+        "product reviews",
+        "sentiment analysis"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "m-ric/amazon_product_reviews_datafiniti",
+        "title": "m-ric/amazon_product_reviews_datafiniti",
+        "score": 4.2
+      },
+      {
+        "id": "6657410",
+        "title": "Amazon product reviews (mock dataset)",
+        "score": 3.6
+      }
+    ]
+  },
+  "33": {
+    "query": "social media sentiment classification corpus",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'social media posts', expected one of ['sentiment', 'emotion', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "social media",
+      "modality": "text",
+      "language": "english",
+      "subject": "social media posts",
+      "required_language": "english",
+      "required_labels": [
+        "positive",
+        "negative",
+        "neutral"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "text data from social media platforms"
+      ],
+      "search_keywords_en": [
+        "social media sentiment analysis",
+        "sentiment classification dataset",
+        "social media posts"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.9,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "Okcan/social-media-posts",
+        "title": "Okcan/social-media-posts",
+        "score": 4.4
+      },
+      {
+        "id": "7801450",
+        "title": "Towards Generalization of Machine Learning Models: An Arabic Sentiment Analysis Dataset",
+        "score": 3.75
+      },
+      {
+        "id": "17622587",
+        "title": "Sentiment Analysis of Public Perceptions toward Finance Minister Purbaya",
+        "score": 3.75
+      },
+      {
+        "id": "17900188",
+        "title": "Religion and Climate Change in the Netherlands (2023): A Multi-Layer Twitter Discourse Dataset Collection",
+        "score": 3.75
+      },
+      {
+        "id": "14919674",
+        "title": "Sentiment Analysis of COVID-19 Scientific Publication Dissemination on Social Media X: A Dataset Analyzed with ChatGPT 3.5 and Gemini 1.5 Flash",
+        "score": 3.75
+      }
+    ]
+  },
+  "34": {
+    "query": "binary sentiment text dataset positive negative",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'general', expected one of ['sentiment', 'polarity', 'opinion', 'emotion']",
+      "no verified title/id contains a known-good pattern: ['sentiment', 'polarity', 'opinion', 'emotion']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "general",
+      "required_language": "english",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "binary sentiment dataset",
+        "text classification",
+        "positive negative reviews"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "35": {
+    "query": "dataset phân tích cảm xúc bình luận",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'comments', expected one of ['sentiment', 'emotion', 'opinion', 'review']",
+      "no verified title/id contains a known-good pattern: ['sentiment', 'emotion', 'opinion', 'review']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "vietnamese",
+      "subject": "comments",
+      "required_language": "vietnamese",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "sentiment analysis dataset",
+        "comments",
+        "vietnamese"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "36": {
+    "query": "multilingual sentiment text classification",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'general', expected one of ['sentiment', 'emotion', 'opinion', 'polarity']",
+      "no verified title/id contains a known-good pattern: ['sentiment', 'emotion', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "any",
+      "subject": "general",
+      "required_language": "multilingual",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "multilingual sentiment analysis",
+        "text classification",
+        "sentiment classification dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "37": {
+    "query": "fine grained emotion sentiment text dataset",
+    "passed": false,
+    "failures": [
+      "no verified title/id contains a known-good pattern: ['emotion', 'sentiment', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "english",
+      "subject": "emotions",
+      "required_language": "english",
+      "required_labels": [
+        "joy",
+        "anger",
+        "sadness",
+        "fear",
+        "surprise",
+        "disgust"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [
+        "fine-grained emotion labels"
+      ],
+      "search_keywords_en": [
+        "fine grained emotion dataset",
+        "sentiment analysis text",
+        "emotion classification dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.9,
+        "required_labels": 0.8
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  },
+  "38": {
+    "query": "Vietnamese sentiment text classification dataset",
+    "passed": false,
+    "failures": [
+      "intent subject mismatch: got 'general', expected one of ['sentiment', 'emotion', 'opinion', 'polarity']",
+      "no verified title/id contains a known-good pattern: ['sentiment', 'emotion', 'opinion', 'polarity']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "sentiment classification",
+      "domain": "NLP",
+      "modality": "text",
+      "language": "vietnamese",
+      "subject": "general",
+      "required_language": "vietnamese",
+      "required_labels": [
+        "positive",
+        "negative"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "Vietnamese sentiment analysis",
+        "text classification dataset",
+        "sentiment classification Vietnamese"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 1.0,
+        "required_labels": 1.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": []
+  }
+}

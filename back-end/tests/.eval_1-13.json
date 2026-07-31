@@ -1,0 +1,1101 @@
+{
+  "1": {
+    "query": "tìm dataset cho bài toán phát hiện con người",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "vietnamese",
+      "subject": "human detection",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "human detection dataset",
+        "object detection",
+        "image dataset"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "5528418",
+        "title": "OpenForensics: Multi-Face Forgery Detection And Segmentation In-The-Wild Dataset [V.1.0.0]",
+        "score": 3.6
+      },
+      {
+        "id": "8021099",
+        "title": "WiFi CSI-Based Long-Range Through-Wall Human Activity Recognition with the ESP32",
+        "score": 3.6
+      },
+      {
+        "id": "7262220",
+        "title": "Crowd simulation (CrowdSim2) for tracking and object detection",
+        "score": 3.6
+      },
+      {
+        "id": "10149996",
+        "title": "Development of Dataset for Detection of Various Events",
+        "score": 3.6
+      },
+      {
+        "id": "7534233",
+        "title": "ΑUTH-AGI OpenDR Humans in Fields Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "15073567",
+        "title": "Human Presence Detection LTE Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "19597219",
+        "title": "Synthetic LiDAR Dataset for Human Fall Detection",
+        "score": 3.6
+      },
+      {
+        "id": "21515906",
+        "title": "Dataset for: Real Time Human Detection by Unmanned Aerial Vehicles",
+        "score": 3.6
+      },
+      {
+        "id": "AbhayPancholi/Human-Activity-Detection-Dataset",
+        "title": "AbhayPancholi/Human-Activity-Detection-Dataset",
+        "score": 3.6
+      }
+    ]
+  },
+  "2": {
+    "query": "tìm dữ liệu object detection dành cho người đi bộ",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "vietnamese",
+      "subject": "pedestrians",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "pedestrian detection dataset",
+        "object detection for pedestrians"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [
+        "required_labels"
+      ],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "6274296",
+        "title": "Dataset of Annotated Virtual Detection Line for Road Traffic Monitoring",
+        "score": 3.6
+      },
+      {
+        "id": "5830902",
+        "title": "LOOK dataset",
+        "score": 3.6
+      },
+      {
+        "id": "17706026",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "14862652",
+        "title": "UIT-Drone4",
+        "score": 3.6
+      },
+      {
+        "id": "17694140",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17720448",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17706944",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "10102416",
+        "title": "Event-based vision datasets for pedestrian detection in urban scenarios",
+        "score": 3.6
+      },
+      {
+        "id": "7355398",
+        "title": "Repartition of part of visdrone2019 dataset",
+        "score": 3.6
+      },
+      {
+        "id": "17719727",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17717929",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17701054",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17705772",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17707394",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17717808",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      }
+    ]
+  },
+  "3": {
+    "query": "human object detection dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "humans",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "human object detection dataset",
+        "image dataset for human detection"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "16537441",
+        "title": "Augmented and Diverse Herding Dataset for Autonomous Shepherd Robots",
+        "score": 3.6
+      },
+      {
+        "id": "14056210",
+        "title": "A pipeline for estimating human attention toward objects with on-board cameras on the iCub humanoid robot",
+        "score": 3.6
+      },
+      {
+        "id": "10991602",
+        "title": "ForClearingDet - Image dataset of annotated RGB images for object detection in forestry clearing operations",
+        "score": 3.6
+      }
+    ]
+  },
+  "4": {
+    "query": "person detection images dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "people",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "person detection dataset",
+        "images for person detection"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [
+        "required_labels"
+      ],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "7740081",
+        "title": "Small Object Aerial Person Detection Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "Kaspar/person_detection_dataset",
+        "title": "Kaspar/person_detection_dataset",
+        "score": 3.6
+      },
+      {
+        "id": "7754768",
+        "title": "The MPEblink dataset",
+        "score": 3.6
+      },
+      {
+        "id": "13331985",
+        "title": "PEDRo: an Event-based Dataset for Person Detection in Robotics",
+        "score": 3.6
+      },
+      {
+        "id": "4024677",
+        "title": "Data: Search and Rescue with Airborne Optical Sectioning",
+        "score": 3.6
+      },
+      {
+        "id": "4124309",
+        "title": "SDT Dataset | Sdt: A Synthetic Multi-Modal Dataset For Person Detection And Pose Classification",
+        "score": 3.6
+      },
+      {
+        "id": "7808511",
+        "title": "SoccerNet_v3_H250/",
+        "score": 3.6
+      },
+      {
+        "id": "14884208",
+        "title": "Person Detection on Construction Sites",
+        "score": 3.6
+      },
+      {
+        "id": "7534233",
+        "title": "ΑUTH-AGI OpenDR Humans in Fields Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "7994645",
+        "title": "TriModal Face Detection Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "20643214",
+        "title": "Swarm-Steward SAR Perception-to-Response Artifacts: AerialPerson-YOLO26l, Dataset Splits, and Field Evaluation Data",
+        "score": 3.6
+      },
+      {
+        "id": "7850045",
+        "title": "Model-2E person following @ Quinta do Seixo",
+        "score": 3.6
+      },
+      {
+        "id": "19557763",
+        "title": "AdaptSyS Dataset",
+        "score": 3.6
+      }
+    ]
+  },
+  "5": {
+    "query": "pedestrian detection dataset for computer vision",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "pedestrians",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "pedestrian detection dataset",
+        "computer vision",
+        "object detection"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [
+        "required_labels"
+      ],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "7262220",
+        "title": "Crowd simulation (CrowdSim2) for tracking and object detection",
+        "score": 3.6
+      },
+      {
+        "id": "17720448",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17706944",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17719727",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17717929",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17701054",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17707394",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17705547",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      }
+    ]
+  },
+  "6": {
+    "query": "people detection dataset in street images",
+    "passed": false,
+    "failures": [
+      "pipeline errors=[\"Web fallback: HTTPSConnectionPool(host='serpapi.com', port=443): Read timed out. (read timeout=12)\"]"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "people",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "people detection",
+        "street images",
+        "object detection"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [
+        "required_labels"
+      ],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "ShutterstockInc/people_detection",
+        "title": "ShutterstockInc/people_detection",
+        "score": 5.0
+      },
+      {
+        "id": "15309060",
+        "title": "Data from: Personalized machine learning models for noninvasive hypoglycemia detection in people with type 1 diabetes using a smartwatch: Insights into feature importance during waking and sleeping times",
+        "score": 3.6
+      },
+      {
+        "id": "6394684",
+        "title": "VWFP: Virtual World Fallen People Dataset for Visual Fallen People Detection",
+        "score": 3.6
+      },
+      {
+        "id": "7262220",
+        "title": "Crowd simulation (CrowdSim2) for tracking and object detection",
+        "score": 3.6
+      },
+      {
+        "id": "19856633",
+        "title": "Palazzo Madama People Detection",
+        "score": 3.6
+      },
+      {
+        "id": "UniqueData/asian-people-liveness-detection-video-dataset",
+        "title": "UniqueData/asian-people-liveness-detection-video-dataset",
+        "score": 3.6
+      },
+      {
+        "id": "UniqueData/people-with-guns-segmentation-and-detection",
+        "title": "UniqueData/people-with-guns-segmentation-and-detection",
+        "score": 3.6
+      },
+      {
+        "id": "tukey/people_detection_roboflow",
+        "title": "tukey/people_detection_roboflow",
+        "score": 3.6
+      }
+    ]
+  },
+  "7": {
+    "query": "crowd person object detection data",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "crowd detection",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "crowd detection dataset",
+        "person detection data",
+        "object detection in crowds"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "10629757",
+        "title": "Crowd Detection Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "17720448",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17706944",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "15186086",
+        "title": "Dataset, software and experimental layouts used in \"Noise levels due to commercial and leisure activities in urban areas: Experimental validation of a numerical model fed with crowd density estimation using computer vision.\"",
+        "score": 3.6
+      },
+      {
+        "id": "17719727",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17717929",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17701054",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17705547",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "19099692",
+        "title": "MoniCrowd: A Real-World WiFi Probe Labelled Dataset with Device-Level Ground Truth",
+        "score": 3.6
+      },
+      {
+        "id": "KienNgyuen/crowd-detection-dataset",
+        "title": "KienNgyuen/crowd-detection-dataset",
+        "score": 3.6
+      }
+    ]
+  },
+  "8": {
+    "query": "phát hiện người trong ảnh camera giám sát",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "vietnamese",
+      "subject": "people",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "people detection",
+        "surveillance camera",
+        "object detection"
+      ],
+      "needs_labels": false,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "815657",
+        "title": "ChokePoint Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "UniqueData/asian-people-liveness-detection-video-dataset",
+        "title": "UniqueData/asian-people-liveness-detection-video-dataset",
+        "score": 3.6
+      },
+      {
+        "id": "15309060",
+        "title": "Data from: Personalized machine learning models for noninvasive hypoglycemia detection in people with type 1 diabetes using a smartwatch: Insights into feature importance during waking and sleeping times",
+        "score": 3.6
+      },
+      {
+        "id": "UniqueData/people-with-guns-segmentation-and-detection",
+        "title": "UniqueData/people-with-guns-segmentation-and-detection",
+        "score": 3.6
+      },
+      {
+        "id": "6394684",
+        "title": "VWFP: Virtual World Fallen People Dataset for Visual Fallen People Detection",
+        "score": 3.6
+      },
+      {
+        "id": "7262220",
+        "title": "Crowd simulation (CrowdSim2) for tracking and object detection",
+        "score": 3.6
+      },
+      {
+        "id": "15124010",
+        "title": "PPS-D: Person-oriented Protection of Public Spaces Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "tukey/people_detection_roboflow",
+        "title": "tukey/people_detection_roboflow",
+        "score": 3.6
+      },
+      {
+        "id": "19856633",
+        "title": "Palazzo Madama People Detection",
+        "score": 3.6
+      },
+      {
+        "id": "ShutterstockInc/people_detection",
+        "title": "ShutterstockInc/people_detection",
+        "score": 3.6
+      }
+    ]
+  },
+  "9": {
+    "query": "dataset khoanh vùng người đi bộ trên đường",
+    "passed": false,
+    "failures": [
+      "pipeline errors=['OpenML · “pedestrian detection dataset”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/pedestrian%20detection%20dataset/limit/12', 'OpenML · “image segmentation pedestrians”: 503 Server Error: Service Temporarily Unavailable for url: https://www.openml.org/api/v1/json/data/list/data_name/image%20segmentation%20pedestrians/limit/12']"
+    ],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "vietnamese",
+      "subject": "pedestrians",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "specific",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "pedestrian detection dataset",
+        "image segmentation pedestrians"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [
+        "required_labels"
+      ],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "17720448",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17706944",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17719727",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17717929",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17701054",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17707394",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17705547",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      }
+    ]
+  },
+  "10": {
+    "query": "real-time human detection training dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "human detection",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "general",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "real-time human detection",
+        "object detection dataset",
+        "image dataset",
+        "human detection"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [
+        "required_labels"
+      ],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "7560253",
+        "title": "MPOSE2021: a Dataset for Short-Time Pose-Based Human Action Recognition",
+        "score": 3.6
+      },
+      {
+        "id": "7808511",
+        "title": "SoccerNet_v3_H250/",
+        "score": 3.6
+      },
+      {
+        "id": "14142968",
+        "title": "RoHuCAD: Robots and Humans Collaborative Anomaly Detection",
+        "score": 3.6
+      },
+      {
+        "id": "10149996",
+        "title": "Development of Dataset for Detection of Various Events",
+        "score": 3.6
+      },
+      {
+        "id": "7516230",
+        "title": "Poses of People in Art: A Data Set for Human Pose Estimation in Digital Art History",
+        "score": 3.6
+      },
+      {
+        "id": "15073567",
+        "title": "Human Presence Detection LTE Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "15125728",
+        "title": "Ransomware Defense Empowered: Deep Learning for Real-Time Family Identification with a Proprietary Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "21515906",
+        "title": "Dataset for: Real Time Human Detection by Unmanned Aerial Vehicles",
+        "score": 3.6
+      },
+      {
+        "id": "rtb1271/human_fight_detection",
+        "title": "rtb1271/human_fight_detection",
+        "score": 3.6
+      },
+      {
+        "id": "Kiuyha/hit-uav-thermal-human-detection",
+        "title": "Kiuyha/hit-uav-thermal-human-detection",
+        "score": 3.6
+      },
+      {
+        "id": "AlekseyKorshuk/ai-detection-booksum-complete-cleaned-human-ai",
+        "title": "AlekseyKorshuk/ai-detection-booksum-complete-cleaned-human-ai",
+        "score": 3.6
+      },
+      {
+        "id": "AlekseyKorshuk/ai-detection-gutenberg-human-formatted-ai-v1-sft",
+        "title": "AlekseyKorshuk/ai-detection-gutenberg-human-formatted-ai-v1-sft",
+        "score": 3.6
+      },
+      {
+        "id": "AlekseyKorshuk/ai-detection-gutenberg-human-v2",
+        "title": "AlekseyKorshuk/ai-detection-gutenberg-human-v2",
+        "score": 3.6
+      },
+      {
+        "id": "AbhayPancholi/Human-Activity-Detection-Dataset",
+        "title": "AbhayPancholi/Human-Activity-Detection-Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "14252074",
+        "title": "Diverse Dataset for Eyeglasses Detection: Extending the Flickr-Faces-HQ (FFHQ) Dataset",
+        "score": 3.6
+      }
+    ]
+  },
+  "11": {
+    "query": "dataset nhận diện và phát hiện khuôn mặt người",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "any",
+      "subject": "face detection",
+      "required_language": "any",
+      "required_labels": [
+        "faces"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "face detection dataset",
+        "face recognition dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.9
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "14474899",
+        "title": "SoloFace: A Single-Face Dataset for Resource-Constrained Face Detection and Tracking",
+        "score": 3.6
+      },
+      {
+        "id": "duongve/Face_Detection_dataset",
+        "title": "duongve/Face_Detection_dataset",
+        "score": 3.6
+      }
+    ]
+  },
+  "12": {
+    "query": "UAV human person detection dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "human detection",
+      "required_language": "any",
+      "required_labels": [
+        "person"
+      ],
+      "preferred_domain": "specific data domain",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "UAV human detection dataset",
+        "drone person detection",
+        "aerial human detection"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 0.9,
+      "field_confidence": {
+        "task_type": 0.9,
+        "modality": 0.9,
+        "domain": 0.9,
+        "required_language": 0.0,
+        "required_labels": 0.9
+      },
+      "missing_fields": [],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "7740081",
+        "title": "Small Object Aerial Person Detection Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "14884208",
+        "title": "Person Detection on Construction Sites",
+        "score": 3.6
+      }
+    ]
+  },
+  "13": {
+    "query": "thermal pedestrian object detection dataset",
+    "passed": true,
+    "failures": [],
+    "status": "answered",
+    "parse_mode": "LLM (openai:gpt-4o-mini)",
+    "rank_mode": "LLM (openai:gpt-4o-mini)",
+    "intent": {
+      "task_type": "object detection",
+      "domain": "computer vision",
+      "modality": "image",
+      "language": "english",
+      "subject": "pedestrians",
+      "required_language": "any",
+      "required_labels": [],
+      "preferred_domain": "specific",
+      "minimum_samples": null,
+      "hard_constraints": [],
+      "search_keywords_en": [
+        "thermal pedestrian detection",
+        "object detection dataset",
+        "thermal imaging dataset"
+      ],
+      "needs_labels": true,
+      "is_narrow_domain": false,
+      "is_sensitive_domain": false,
+      "sensitive_reason": "",
+      "intent_confidence": 1.0,
+      "field_confidence": {
+        "task_type": 1.0,
+        "modality": 1.0,
+        "domain": 1.0,
+        "required_language": 0.0,
+        "required_labels": 0.0
+      },
+      "missing_fields": [
+        "required_labels"
+      ],
+      "needs_clarification": false,
+      "clarification_question": ""
+    },
+    "verified": [
+      {
+        "id": "3754168",
+        "title": "RIFIR – A Far Infrared Dataset",
+        "score": 3.6
+      },
+      {
+        "id": "17719727",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17717929",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17701054",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      },
+      {
+        "id": "17705547",
+        "title": "CrowdBot_v2: Pedestrian–Robot crowd navigation dataset with pedestrian tracking",
+        "score": 3.6
+      }
+    ]
+  }
+}
